@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:context=".library.LibraryFragment">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvLibrary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rvLibrary"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="6dp">
+
+                <TextView
+                    android:id="@+id/book_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="6dp"
+                    android:text="@string/book_start_end"
+                    android:textSize="26sp" />
+
+                <TextView
+                    android:id="@+id/book_disc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:text="@string/book_des_start_end"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:layout_gravity="end"
+                    android:text="@string/for_dawnload"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/book_url"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:text="@string/book_ss_url"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/c"
+            android:layout_marginTop="8dp"/>
+    </RelativeLayout>
+</ScrollView>

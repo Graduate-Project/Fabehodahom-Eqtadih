@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">My Project</string>
+    <string name="home">الرئسية</string>
+    <string name="library">المكتبات</string>
+    <string name="attribute">الصفات</string>
+    <string name="Character">الصحابة</string>
+    <string name="Audio">الصوتيات</string>
+
+
+    <string name="book_ss">صفة الصفوة</string>
+    <string name="book_des_ss">صفة الصفوة هو كتاب في السيرة النبوية والتراجم والطبقات، ألفه الحافظ أبو الفرج بن الجوزي (508 هـ - 597 هـ)، يبحث الكتاب في التراجم وقصص الاعتبار والمواعظ التي حصلت مع الأتقياء والأصفياء من الصحابة ومن بعدهم.</string>
+
+    <string name="book_man_around_massenger">رجال حول الرسول</string>
+    <string name="book_des_man_around_massenger">كتاب رجال حول الرسول لخالد محمد خالد هو كتاب يتناول صور سريعة لحياة نفر من أصحاب النبي محمد من منظور إسلامي يتناول التغييرات والتحولات التي طرأت على هذه الشخصيات بدخولها الإسلام والسمة المميزة لكل منهم.\n</string>
+
+    <string name="book_start_end">البداية والنهاية</string>
+    <string name="book_des_start_end">هو عرض للتاريخ من بدء الخلق إلى نهايته يبدأ ببداية خلق السماوات والأرض[؟] والملائكة إلى خلق آدم، ثم يتطرق إلى قصص الأنبياء مختصرًا ثم التفصيل في الأحداث التاريخيّة منذ مبعث النبي محمد حتى سنة 768 هـ بطريقة التبويب على السنوات. وتبدأ السنة بقوله \"ثم دخلت سنة..\" ثم يسرد الأحداث التاريخيّة فيها ثم يذكر أبرز من توفوا في هذه السنة. أما جزء النهاية ففيه علامات الساعة لغاية يوم الحساب بالتفصيل.</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="book_ss_url">https://www.noor-book.com/%D9%83%D8%AA%D8%A7%D8%A8-%D8%B5%D9%81%D9%87-%D8%A7%D9%84%D8%B5%D9%81%D9%88%D9%87-%D8%A7%D8%A8%D9%86-%D8%A7%D9%84%D8%AC%D9%88%D8%B2%D9%8A-pdf</string>
+    <string name="for_dawnload">للتحميل اضغط هنا</string>
+</resources>
