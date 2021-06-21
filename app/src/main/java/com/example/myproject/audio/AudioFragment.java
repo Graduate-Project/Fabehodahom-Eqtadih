@@ -3,6 +3,7 @@ package com.example.myproject.audio;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,8 +16,8 @@ import android.view.ViewGroup;
 import com.example.myproject.Adapter.RecyclerAudioAdapter;
 import com.example.myproject.Adapter.SlideShowAdapterAudio;
 import com.example.myproject.R;
-import com.example.myproject.pojo.AudioData;
 import com.example.myproject.databinding.FragmentAudioBinding;
+import com.example.myproject.pojo.AudioData;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -25,7 +26,7 @@ import java.util.TimerTask;
 
 public class AudioFragment extends Fragment {
 
-    private FragmentAudioBinding binding;
+    FragmentAudioBinding binding;
     SlideShowAdapterAudio adapter;
     Handler handler;
     Runnable runnable;
@@ -41,7 +42,7 @@ public class AudioFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Enabled view binding
+        // Enabled data binding
         binding = FragmentAudioBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 

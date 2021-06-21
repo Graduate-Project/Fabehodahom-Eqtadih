@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.myproject.R;
-import com.example.myproject.audio.AudioPlayerFragment;
+import com.example.myproject.audio.AudioPlayerFrag;
 
 
 public class HomeFragment extends Fragment {
@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 // Replace whatever is in the fragment_container view with this fragment,
                 // and add the transaction to the back stack
-                transaction.replace(R.id.fragment_container, new AudioPlayerFragment());
+                transaction.replace(R.id.fragment_container, new AudioPlayerFrag());
                 transaction.addToBackStack(null);
                 // Commit the transaction
                 transaction.commit();

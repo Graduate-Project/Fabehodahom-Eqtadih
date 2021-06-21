@@ -1,37 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".audio.AudioFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager_audio_series"
-        android:layout_width="match_parent"
-        android:layout_height="200dp" />
+    </data>
 
-    <me.relex.circleindicator.CircleIndicator
-        android:id="@+id/circle_indicator_audio_series"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_margin="6dp"
-        android:layout_below="@+id/view_pager_audio_series"
-        android:layout_centerHorizontal="true"
-        android:background="@color/brown" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_audio_id"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/circle_indicator_audio_series"
-        android:layout_margin="6dp" />
+        tools:context=".audio.AudioFragment">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@id/recycler_view_audio_id" />
 
-</RelativeLayout>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager_audio_series"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/circle_indicator_audio_series"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_margin="6dp"
+            android:layout_below="@+id/view_pager_audio_series"
+            android:layout_centerHorizontal="true"
+            android:background="@color/brown" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_audio_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/circle_indicator_audio_series"
+            android:layout_margin="6dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/recycler_view_audio_id" />
+
+    </RelativeLayout>
+</layout>

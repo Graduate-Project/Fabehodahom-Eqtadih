@@ -8,31 +8,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.example.myproject.R;
-import com.example.myproject.databinding.FragmentAudioPlayerBinding;
+import com.example.myproject.databinding.FragAudioPlayerBinding;
+import com.example.myproject.databinding.FragmentAudioBinding;
 
 import java.util.concurrent.TimeUnit;
 
+public class AudioPlayerFrag extends Fragment {
 
-public class AudioPlayerFragment extends Fragment {
 
-    private FragmentAudioPlayerBinding binding;
-
+    FragAudioPlayerBinding binding;
     MediaPlayer mediaPlayer;
     Handler handler = new Handler();
     Runnable runnable;
 
-    public AudioPlayerFragment() {
+    public AudioPlayerFrag() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentAudioPlayerBinding.inflate(inflater, container, false);
+        binding = FragAudioPlayerBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
         // initialize media player

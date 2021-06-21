@@ -12,69 +12,35 @@ import android.view.ViewGroup;
 import android.widget.GridLayout;
 
 import com.example.myproject.R;
+import com.example.myproject.databinding.FragmentCharacterBinding;
 
 public class CharacterFragment extends Fragment {
-    GridLayout gl;
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    FragmentCharacterBinding binding;
 
     public CharacterFragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CharacterFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CharacterFragment newInstance(String param1, String param2) {
-        CharacterFragment fragment = new CharacterFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        gridlistener();
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_character, container, false);
+        binding = FragmentCharacterBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
+
+        gridlistener();
+
+        return view;
     }
     void gridlistener(){
 
-        gl = (GridLayout)getActivity(). findViewById(R.id.mainGrid);
-
-
-        int childCount = gl.getChildCount();
+        int childCount = binding.mainGrid.getChildCount();
 
         for (int i = 0; i < childCount; i++) {
 
-
-
-            CardView l = (CardView) gl.getChildAt(i);
+            CardView l =(CardView) binding.mainGrid.getChildAt(i);
 
             final int finalI = i;
             l.setOnClickListener(new View.OnClickListener() {

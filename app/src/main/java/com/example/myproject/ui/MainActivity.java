@@ -6,24 +6,30 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+
+import com.example.myproject.R;
 import com.example.myproject.attribute.AttributeFragment;
 import com.example.myproject.audio.AudioFragment;
 import com.example.myproject.character.CharacterFragment;
 
+import com.example.myproject.databinding.ActivityMainBinding;
 import com.example.myproject.home.HomeFragment;
 import com.example.myproject.library.LibraryFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    BottomNavigationView b;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        b=findViewById(R.id.nav_home);
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        binding.bottomNav.setOnNavigationItemSelectedListener(navListener);
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, new HomeFragment())
