@@ -13,6 +13,7 @@ import android.widget.GridLayout;
 
 import com.example.myproject.R;
 import com.example.myproject.databinding.FragmentCharacterBinding;
+import com.example.myproject.room.SehapaDatabase;
 
 public class CharacterFragment extends Fragment {
 
