@@ -37,7 +37,7 @@ public class ContentOfEachChar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content_of_each_char);
         pdfView = findViewById(R.id.pdfView);
-        pdfView.fromAsset("saiedidnzaid.pdf").load();
+        pdfView.fromAsset("abobakr.pdf").load();
 
 
         // url of our PDF file.

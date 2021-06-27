@@ -1,21 +1,26 @@
 package com.example.myproject.attribute;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
+import android.widget.GridView;
 
+import com.example.myproject.AttributeActivity;
 import com.example.myproject.R;
+import com.example.myproject.character.ContentOfEachChar;
+import com.example.myproject.databinding.FragmentCharacterBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AttributeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
+
 public class AttributeFragment extends Fragment {
+GridLayout g;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,22 +36,11 @@ public class AttributeFragment extends Fragment {
     }
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AttributeFragment.
+     \
      */
     // TODO: Rename and change types and number of parameters
-    public static AttributeFragment newInstance(String param1, String param2) {
-        AttributeFragment fragment = new AttributeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +55,32 @@ public class AttributeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_attribute, container, false);
+        View v=inflater.inflate(R.layout.fragment_attribute, container, false);
+        g=v.findViewById(R.id.attribgl);
+          gridlistener();
+
+        return v;
     }
+    void gridlistener(){
+
+        int childCount = g.getChildCount();
+
+        for (int i = 0; i < childCount; i++) {
+
+            CardView l = (CardView) g.getChildAt(i);
+
+            final int finalI = i;
+            l.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Bundle b = new Bundle();
+
+                    Intent a = new Intent(getContext(), AttributeActivity.class);
+//                    b.putInt("index", finalI);
+//                    a.putExtra("post", b);
+                    startActivity(a);
+
+                }
+
+            });
+        }}
 }

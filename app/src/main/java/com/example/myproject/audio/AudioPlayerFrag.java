@@ -38,7 +38,7 @@ public class AudioPlayerFrag extends Fragment {
         View view = binding.getRoot();
 
         // initialize media player
-        mediaPlayer = MediaPlayer.create(getContext(), R.raw.song);
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.abobakr);
 
         // initialize runnable
         runnable = new Runnable() {
