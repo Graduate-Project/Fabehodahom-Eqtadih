@@ -15,6 +15,8 @@ import com.example.myproject.R;
 import com.example.myproject.databinding.FragmentCharacterBinding;
 import com.example.myproject.room.SehapaDatabase;
 
+import java.util.ArrayList;
+
 public class CharacterFragment extends Fragment {
 
     FragmentCharacterBinding binding;
@@ -46,11 +48,11 @@ public class CharacterFragment extends Fragment {
             final int finalI = i;
             l.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    Bundle b = new Bundle();
 
-                    Intent a=new Intent(getContext(), ContentOfEachChar.class);
-                    b.putInt("index",finalI);
-                    a.putExtra("post",b);
+
+                  Intent a=new Intent(getContext(), ContentOfEachChar.class);
+
+                    a.putExtra("index",finalI);
                     startActivity(a);
 
                 }

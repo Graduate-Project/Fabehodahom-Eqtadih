@@ -69,15 +69,16 @@ GridLayout g;
 
             CardView l = (CardView) g.getChildAt(i);
 
-            final int finalI = i;
+            //final int finalI = i;
             l.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    Bundle b = new Bundle();
+//                    Bundle bundle = new Bundle();
+//                    bundle.putInt("index",finalI);
 
-                    Intent a = new Intent(getContext(), AttributeActivity.class);
-//                    b.putInt("index", finalI);
-//                    a.putExtra("post", b);
-                    startActivity(a);
+
+//                    Intent a = new Intent(getContext(), AttributeActivity.class);
+//                       a.putExtra("index",finalI);
+//                    startActivity(a);
 
                 }
 

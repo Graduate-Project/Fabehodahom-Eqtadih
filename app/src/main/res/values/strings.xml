@@ -21,4 +21,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="book_ss_url">https://www.noor-book.com/%D9%83%D8%AA%D8%A7%D8%A8-%D8%B5%D9%81%D9%87-%D8%A7%D9%84%D8%B5%D9%81%D9%88%D9%87-%D8%A7%D8%A8%D9%86-%D8%A7%D9%84%D8%AC%D9%88%D8%B2%D9%8A-pdf</string>
     <string name="for_dawnload">للتحميل اضغط هنا</string>
+    <string name="charattribute">صفات الشخصية</string>
+    <string name="charaudio">إستمع</string>
 </resources>
