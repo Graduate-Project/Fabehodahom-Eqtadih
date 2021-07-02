@@ -2,20 +2,14 @@ package com.example.myproject.character;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.GridLayout;
-
-import com.example.myproject.R;
 import com.example.myproject.databinding.FragmentCharacterBinding;
-import com.example.myproject.room.SehapaDatabase;
-
-import java.util.ArrayList;
 
 public class CharacterFragment extends Fragment {
 
@@ -37,22 +31,23 @@ public class CharacterFragment extends Fragment {
 
         return view;
     }
-    void gridlistener(){
+
+    void gridlistener() {
 
         int childCount = binding.mainGrid.getChildCount();
 
         for (int i = 0; i < childCount; i++) {
 
-            CardView l =(CardView) binding.mainGrid.getChildAt(i);
+            CardView l = (CardView) binding.mainGrid.getChildAt(i);
 
             final int finalI = i;
             l.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
 
 
-                  Intent a=new Intent(getContext(), ContentOfEachChar.class);
+                    Intent a = new Intent(getContext(), ContentOfEachChar.class);
 
-                    a.putExtra("index",finalI);
+                    a.putExtra("index", finalI);
                     startActivity(a);
 
                 }

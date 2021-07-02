@@ -23,4 +23,5 @@
     <string name="for_dawnload">للتحميل اضغط هنا</string>
     <string name="charattribute">صفات الشخصية</string>
     <string name="charaudio">إستمع</string>
+    <string name="AttrChar">شخصيات الصفة</string>
 </resources>
