@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyProject">
-        <activity android:name=".attribute.ContentOfEachAttr"></activity>
+        <activity android:name=".library.ContentLibrary"></activity>
+        <activity android:name=".attribute.ContentOfEachAttr" />
         <activity android:name=".audio.PlayerActivity" />
         <activity android:name=".character.ContentOfEachChar" />
         <activity android:name=".ui.MainActivity" />

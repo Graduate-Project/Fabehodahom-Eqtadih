@@ -49,7 +49,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/sedk" />
+                        android:src="@drawable/hayaa" />
 
 
                 </androidx.cardview.widget.CardView>
@@ -175,7 +175,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/hayaa" />
+                        android:src="@drawable/sedk" />
 
 
                 </androidx.cardview.widget.CardView>
