@@ -1,30 +1,37 @@
 package com.example.myproject.Adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myproject.BookDetailActvity;
 import com.example.myproject.R;
-import com.example.myproject.pojo.LibraryData;
+import com.example.myproject.data.LibraryModel;
+import com.example.myproject.ui.MainActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class RecyclerLibAdapter extends RecyclerView.Adapter<RecyclerLibAdapter.RecyclerLibHolder> {
-
-    ArrayList<LibraryData> data;
+    Context m;
+    ArrayList<LibraryModel> data;
     private ItemClickListener itemClickListener;
 
-    public RecyclerLibAdapter() {
+    public RecyclerLibAdapter(Context Context, ArrayList<LibraryModel> arrayList) {
+        this.m= Context;
+        this.data=arrayList;
+
     }
 
-    public void setData(ArrayList<LibraryData> libraryData, ItemClickListener listener){
-        this.data = libraryData;
+    public void setData(ArrayList<LibraryModel> libraryModels, ItemClickListener listener){
+        this.data = libraryModels;
         this.itemClickListener = listener;
         notifyDataSetChanged();
     }
@@ -44,14 +51,24 @@ public class RecyclerLibAdapter extends RecyclerView.Adapter<RecyclerLibAdapter.
     @Override
     public void onBindViewHolder(@NonNull RecyclerLibHolder holder, int position) {
 
-        final LibraryData libs = data.get(position);
-        holder.lib_name.setText(libs.getLibName());
-        holder.lib_img.setImageResource(libs.getLibImg());
-
+        final LibraryModel libs = data.get(position);
+        holder.lib_name.setText(libs.getBookName());
+                Picasso.get()
+                .load(libs.getCoverPic())
+                .into(holder.lib_img);
+        int index= holder.getAdapterPosition();
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                itemClickListener.onItemClick(data.get(position));// this will get position of item in recyclerview
+
+                Intent n=new Intent(view.getContext(), BookDetailActvity.class);
+                   n.putExtra("position",index);
+                    m.startActivity(n);
+
+
+
+
+
 
             }
         });
@@ -60,17 +77,19 @@ public class RecyclerLibAdapter extends RecyclerView.Adapter<RecyclerLibAdapter.
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return data.size()-1;
     }
+
+
 
     public interface ItemClickListener{
-        void onItemClick(LibraryData data);
+        void onItemClick(LibraryModel data);
     }
 
-    class RecyclerLibHolder extends RecyclerView.ViewHolder {
+   static class RecyclerLibHolder extends RecyclerView.ViewHolder {
 
-        ImageView lib_img;
-        TextView lib_name;
+       public ImageView lib_img;
+       public TextView lib_name;
 
         public RecyclerLibHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,4 +98,5 @@ public class RecyclerLibAdapter extends RecyclerView.Adapter<RecyclerLibAdapter.
             lib_name = itemView.findViewById(R.id.lib_name);
         }
     }
+
 }

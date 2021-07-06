@@ -1,10 +1,8 @@
 package com.example.myproject.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +10,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.myproject.R;
-import com.example.myproject.attribute.ContentOfEachAttr;
-import com.example.myproject.audio.AudioPlayerFrag;
-import com.example.myproject.library.ContentLibrary;
 
 
 public class HomeFragment extends Fragment {
@@ -35,8 +30,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                    Intent i = new Intent(getActivity(), ContentLibrary.class);
-                    startActivity(i);
 //                FragmentTransaction transaction = getFragmentManager().beginTransaction();
 //                // Replace whatever is in the fragment_container view with this fragment,
 //                // and add the transaction to the back stack
