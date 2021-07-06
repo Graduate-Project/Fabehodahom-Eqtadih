@@ -8,14 +8,11 @@
 
     </data>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/home"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
             tools:context=".audio.AudioPlayerFrag">
 
 
@@ -25,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="60dp">
 
                 <ImageView
                     android:id="@+id/audio_im_player"
@@ -42,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/card"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="40dp"
                 android:text="اسم المقطع"
                 android:textColor="@color/white"
                 android:textSize="36sp" />
@@ -53,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/audio_player_name"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:text="اسم الشيخ"
                 android:textColor="@color/white"
                 android:textSize="26sp" />
@@ -63,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/audio_player_char"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:orientation="horizontal"
                 android:padding="12dp">
 
@@ -140,5 +137,5 @@
                 android:layout_height="60dp"
                 android:layout_below="@+id/l" />
         </RelativeLayout>
-    </ScrollView>
+
 </layout>

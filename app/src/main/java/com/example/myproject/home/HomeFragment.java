@@ -35,8 +35,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                    Intent i = new Intent(getActivity(), ContentLibrary.class);
-                    startActivity(i);
+
 //                FragmentTransaction transaction = getFragmentManager().beginTransaction();
 //                // Replace whatever is in the fragment_container view with this fragment,
 //                // and add the transaction to the back stack

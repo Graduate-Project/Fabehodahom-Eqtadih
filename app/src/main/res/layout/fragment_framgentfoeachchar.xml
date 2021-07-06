@@ -1,52 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/home"
     android:layout_height="match_parent"
-    >
+    android:background="@drawable/home">
+
     <WebView
         android:id="@+id/web"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="match_parent" />
 
     <LinearLayout
-        android:layout_marginTop="4dp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:weightSum="2"
-        android:layout_above="@id/web"
-         android:orientation="horizontal"
-        android:layout_marginBottom="8dp"
         android:layout_alignParentBottom="true"
-        >
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
 
         <Button
-            android:layout_weight="1"
             android:id="@+id/audio"
-            android:background="@drawable/btnstyle"
-            android:layout_width="match_parent"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="#ffffff"
-            android:text="@string/charattribute"
+            android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginRight="2dp"/>
+            android:background="@drawable/left_radiud"
+            android:text="@string/charattribute"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="50dp"
+            android:background="@color/gray" />
 
         <Button
             android:id="@+id/attribbtn"
-            android:layout_weight="1"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="@drawable/right_radius"
             android:text="@string/charaudio"
-            android:textStyle="bold"
             android:textColor="#ffffff"
             android:textSize="18sp"
-            android:layout_width="match_parent"
-            android:background="@drawable/btnstyle"
-            android:layout_height="50dp"/>
+            android:textStyle="bold" />
+
     </LinearLayout>
+
 </RelativeLayout>
 
 

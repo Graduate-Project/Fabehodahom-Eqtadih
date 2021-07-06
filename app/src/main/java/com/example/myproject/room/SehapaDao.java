@@ -12,7 +12,4 @@ public interface SehapaDao {
 
 @Query("select * from Sehapa_table")
 List<Sehapa> getSehapa();
-
-
-
 }
