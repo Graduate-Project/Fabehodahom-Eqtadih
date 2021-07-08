@@ -51,4 +51,7 @@
     <string name="ss_author">ابن الجوزى</string>
     <string name="charlib">المكتبة المرئية للصحابة</string>
     <string name="attlib">المكتبة المرئية للصفات</string>
+    <string name="serieName">اسم السلسلة</string>
+    <string name="videoName">اسم الفيديو</string>
+    <string name="instructorName">اسم الشيخ</string>
 </resources>
