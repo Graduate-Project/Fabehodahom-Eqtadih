@@ -22,19 +22,16 @@ import java.util.ArrayList;
 public class RecyclerLibAdapter extends RecyclerView.Adapter<RecyclerLibAdapter.RecyclerLibHolder> {
     Context m;
     ArrayList<LibraryModel> data;
-    private ItemClickListener itemClickListener;
 
-    public RecyclerLibAdapter(Context Context, ArrayList<LibraryModel> arrayList) {
+
+    public RecyclerLibAdapter(Context Context, ArrayList<LibraryModel> arrayList)
+    {
         this.m= Context;
         this.data=arrayList;
 
+
     }
 
-    public void setData(ArrayList<LibraryModel> libraryModels, ItemClickListener listener){
-        this.data = libraryModels;
-        this.itemClickListener = listener;
-        notifyDataSetChanged();
-    }
 
 
     @NonNull
@@ -56,19 +53,14 @@ public class RecyclerLibAdapter extends RecyclerView.Adapter<RecyclerLibAdapter.
                 Picasso.get()
                 .load(libs.getCoverPic())
                 .into(holder.lib_img);
-        int index= holder.getAdapterPosition();
+          int id=libs.getBookId();
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent n=new Intent(view.getContext(), BookDetailActvity.class);
-                   n.putExtra("position",index);
-                    m.startActivity(n);
-
-
-
-
-
+                   n.putExtra("position",id);
+                   m.startActivity(n);
 
             }
         });

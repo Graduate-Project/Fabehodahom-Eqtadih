@@ -10,6 +10,10 @@ public class LibraryModel {
     private String BookName;
     private int BookId;
 
+    public LibraryModel(String bookCategory) {
+        this.bookCategory = bookCategory;
+    }
+
     public LibraryModel(String coverPic, String bookName) {
         this.coverPic = coverPic;
         BookName = bookName;
