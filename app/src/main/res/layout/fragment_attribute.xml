@@ -49,7 +49,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/hayaa" />
+                        android:src="@drawable/s_hyaa" />
 
 
                 </androidx.cardview.widget.CardView>
@@ -72,7 +72,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/amana" />
+                        android:src="@drawable/s_sedq" />
 
 
                 </androidx.cardview.widget.CardView>
@@ -96,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/wraa" />
+                        android:src="@drawable/s_amana" />
 
 
                 </androidx.cardview.widget.CardView>
@@ -123,7 +123,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/zuhd" />
+                        android:src="@drawable/s_twad3" />
 
 
                 </androidx.cardview.widget.CardView>
@@ -147,7 +147,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/tawad" />
+                        android:src="@drawable/s_zohd" />
 
 
                 </androidx.cardview.widget.CardView>
@@ -175,11 +175,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/sedk" />
+                        android:src="@drawable/s_wara3" />
 
 
                 </androidx.cardview.widget.CardView>
-
 
             </GridLayout>
 

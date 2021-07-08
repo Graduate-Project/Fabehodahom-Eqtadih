@@ -12,7 +12,7 @@
         <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/home"
             tools:context=".audio.AudioPlayerFrag">
 
 
@@ -40,10 +40,11 @@
                 android:layout_below="@+id/card"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="40dp"
-                android:text="اسم المقطع"
+                android:text="أبو بكر الصديق"
                 android:textColor="@color/white"
+                android:textStyle="bold"
                 android:textSize="36sp" />
-
+<!--
             <TextView
                 android:id="@+id/audio_player_char"
                 android:layout_width="wrap_content"
@@ -55,11 +56,13 @@
                 android:textColor="@color/white"
                 android:textSize="26sp" />
 
+                -->
+
             <LinearLayout
                 android:id="@+id/p"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/audio_player_char"
+                android:layout_below="@+id/audio_player_name"
                 android:layout_marginTop="50dp"
                 android:orientation="horizontal"
                 android:padding="12dp">
@@ -77,7 +80,8 @@
                     android:id="@+id/audio_player_seekBar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:thumbTint="@color/white"/>
 
                 <TextView
                     android:id="@+id/audio_player_duration"
@@ -135,7 +139,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_below="@+id/l" />
+                android:layout_below="@+id/l"/>
         </RelativeLayout>
 
 </layout>

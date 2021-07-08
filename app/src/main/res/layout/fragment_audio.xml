@@ -6,43 +6,37 @@
 
     </data>
 
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        tools:context=".audio.AudioFragment">
 
-        <RelativeLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/light_brown"
-            tools:context=".audio.AudioFragment">
+            android:layout_height="wrap_content">
 
-
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/view_pager_audio_series"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <me.relex.circleindicator.CircleIndicator
-                android:id="@+id/circle_indicator_audio_series"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_below="@+id/view_pager_audio_series"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="2dp"
-                android:background="@color/light_brown" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_audio_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="6dp" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view_audio_id"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/circle_indicator_audio_series" />
+            </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@id/recycler_view_audio_id" />
+        </androidx.core.widget.NestedScrollView>
 
-        </RelativeLayout>
-    </ScrollView>
+    </LinearLayout>
+
 </layout>

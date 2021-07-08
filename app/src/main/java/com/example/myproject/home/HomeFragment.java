@@ -1,5 +1,6 @@
 package com.example.myproject.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.myproject.R;
+import com.example.myproject.audio.PlayerActivity;
 
 
 public class HomeFragment extends Fragment {
@@ -29,6 +31,9 @@ public class HomeFragment extends Fragment {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Intent i = new Intent(getActivity(), PlayerActivity.class);
+                startActivity(i);
 
 //                FragmentTransaction transaction = getFragmentManager().beginTransaction();
 //                // Replace whatever is in the fragment_container view with this fragment,

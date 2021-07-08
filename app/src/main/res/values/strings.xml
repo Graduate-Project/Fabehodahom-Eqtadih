@@ -49,4 +49,8 @@
     <string name="AttrChar">شخصيات الصفة</string>
     <string name="back_to_home">الرجوع الي الموقع</string>
     <string name="ss_author">ابن الجوزى</string>
+    <string name="videoDescription">وصف الفيديو</string>
+    <string name="instructorName">اسم الشيخ</string>
+    <string name="videoName">اسم الفيديو</string>
+    <string name="serieName">اسم السلسله</string>
 </resources>

@@ -66,8 +66,6 @@ public class LibraryFragment extends Fragment {
     //set up retrofit
     public void retrofit() {
 
-
-
         LibInterface apiInterface = (LibInterface) RetrofitClient.getClient().create(LibInterface.class);
         Call<List<LibraryModel>> call = apiInterface.getAllLib();
 
