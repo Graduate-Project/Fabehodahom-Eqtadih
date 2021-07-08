@@ -38,7 +38,7 @@ public class AudioPlayerFrag extends Fragment {
         View view = binding.getRoot();
 
         // initialize media player
-        mediaPlayer = MediaPlayer.create(getContext(), R.raw.abobakr);
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.sediq);
 
         // initialize runnable
         runnable = new Runnable() {
@@ -46,21 +46,16 @@ public class AudioPlayerFrag extends Fragment {
             public void run() {
                 // set progress on seek bar
                 binding.audioPlayerSeekBar.setProgress(mediaPlayer.getCurrentPosition());
-
                 // handler post delay for 0.5 second
                 handler.postDelayed(this, 500);
             }
         };
-
         // get duration of media player
         int duration = mediaPlayer.getDuration();
-
         // convert millisecond to minute and second
         String sDuration = convertFormat(duration);
-
         // set duration on text view
         binding.audioPlayerDuration.setText(sDuration);
-
         binding.audioPlayerPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,7 +85,6 @@ public class AudioPlayerFrag extends Fragment {
                 handler.removeCallbacks(runnable);
             }
         });
-
         binding.audioPlayerFf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

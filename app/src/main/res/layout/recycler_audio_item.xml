@@ -1,77 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
     app:cardCornerRadius="20dp">
 
-    <RelativeLayout
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/c"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white">
+        app:cardCornerRadius="20dp">
 
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/c"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="4dp"
-            app:cardCornerRadius="40dp">
-
-            <ImageView
-                android:id="@+id/audo_image"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/im" />
-        </androidx.cardview.widget.CardView>
-
-        <LinearLayout
-            android:id="@+id/parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_toStartOf="@+id/c"
-            android:layout_centerVertical="true"
+            android:background="@color/white"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/audio_name"
+                android:id="@+id/serie_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-thin"
-                android:gravity="start"
-                android:padding="4dp"
-                android:text="اسم المقطع"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="6dp"
+                android:padding="3dp"
+                android:text="@string/serieName"
                 android:textColor="@color/brown"
-                android:textSize="20sp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <FrameLayout
+                android:id="@+id/f"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@+id/serie_name"
+                android:layout_margin="4dp">
+
+                <VideoView
+                    android:id="@+id/video_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/gray"/>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/videoName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/f"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="6dp"
+                android:padding="3dp"
+                android:text="@string/videoName"
+                android:textColor="@color/brown"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/audio_char"
+                android:id="@+id/instructorName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:padding="4dp"
-                android:layout_marginTop="4dp"
-                android:text="اسم الشيخ"
+                android:layout_below="@+id/videoName"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="6dp"
+                android:padding="3dp"
+                android:text="@string/instructorName"
                 android:textColor="@color/brown"
-                android:textSize="18sp" />
+                android:textSize="16sp"
+                android:textStyle="normal" />
 
-        </LinearLayout>
 
-        <TextView
-            android:id="@+id/audio_period"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerInParent="true"
-            android:layout_margin="6dp"
-            android:text="مدة المقطع"
-            android:textColor="@color/brown" />
 
-    </RelativeLayout>
-</androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

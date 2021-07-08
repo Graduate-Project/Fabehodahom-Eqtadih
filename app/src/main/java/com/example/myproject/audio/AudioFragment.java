@@ -1,104 +1,115 @@
 package com.example.myproject.audio;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+import android.widget.VideoView;
 
-import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.myproject.Adapter.RecyclerAudioAdapter;
-import com.example.myproject.Adapter.SlideShowAdapterAudio;
+import com.example.myproject.NetWork.AudioInterface;
+import com.example.myproject.NetWork.RetrofitClient;
 import com.example.myproject.R;
+import com.example.myproject.data.AudioModel;
 import com.example.myproject.databinding.FragmentAudioBinding;
-import com.example.myproject.pojo.AudioData;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class AudioFragment extends Fragment {
 
     FragmentAudioBinding binding;
-    SlideShowAdapterAudio adapter;
-    Handler handler;
-    Runnable runnable;
-    Timer timer;
-    RecyclerAudioAdapter audioAdapter;
+    View view;
+
+    RecyclerAudioAdapter adapter;
+    ArrayList<AudioModel> list;
+
+    int returnIndex;
+    VideoView videoView;
+    RecyclerView recyclerView;
+
 
     public AudioFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Enabled data binding
-        binding = FragmentAudioBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
+        //    binding = FragmentAudioBinding.inflate(inflater, container, false);
+        //    view = binding.getRoot();
+        view = inflater.inflate(R.layout.fragment_audio, container, false);
+
+        recyclerView = view.findViewById(R.id.recycler_view_audio_id);
+        videoView = (VideoView) view.findViewById(R.id.video_view);
+        returnIndex = getActivity().getIntent().getIntExtra("position", 1);
+
+//        list = new ArrayList<>();
+//        list.add(new AudioModel( "مقطع صوتي لأبي بكر الصديق", "طارق السويدان" ,"سلسلة الصحابة",
+//                "https://www.youtube.com/watch?v=z3HouXZUWEA&list=PLW3Dddj9BXB8CAx3i5U9UFuELJDpY21qF&index=1"));
+//        list.add(new AudioModel( "مقطع صوتي لأبي بكر الصديق", "طارق السويدان" ,"سلسلة الصحابة",
+//                "https://www.youtube.com/watch?v=z3HouXZUWEA&list=PLW3Dddj9BXB8CAx3i5U9UFuELJDpY21qF&index=1"));
+//        list.add(new AudioModel( "مقطع صوتي لأبي بكر الصديق", "طارق السويدان" , "سلسلة الصحابة",
+//                "https://www.youtube.com/watch?v=z3HouXZUWEA&list=PLW3Dddj9BXB8CAx3i5U9UFuELJDpY21qF&index=1"));
+//        list.add(new AudioModel( "مقطع صوتي لأبي بكر الصديق", "طارق السويدان" ,"سلسلة الصحابة",
+//                "https://www.youtube.com/watch?v=z3HouXZUWEA&list=PLW3Dddj9BXB8CAx3i5U9UFuELJDpY21qF&index=1"));
 
 
-        // enabled adapter
-        audioAdapter = new RecyclerAudioAdapter();
-        adapter = new SlideShowAdapterAudio(getContext(), audioAdapter);
-        binding.viewPagerAudioSeries.setAdapter(adapter);
+        //      videoView.setVideoPath("https://www.youtube.com/watch?v=z3HouXZUWEA&list=PLW3Dddj9BXB8CAx3i5U9UFuELJDpY21qF&index=1");
+//        MediaController mediaController = new MediaController(getContext());
+//        mediaController.setAnchorView(videoView);
+//        videoView.setMediaController(mediaController);
+//
+//        adapter = new RecyclerAudioAdapter(getContext(), list);
+//        recyclerView.setAdapter(adapter);
 
-        // enable circle indicator
-        binding.circleIndicatorAudioSeries.setViewPager(binding.viewPagerAudioSeries);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
 
-        // add timer to imageSlide
-        handler = new Handler();
-
-        runnable = new Runnable() {
-            @Override
-            public void run() {
-
-                // run Audio Series
-                int i = binding.viewPagerAudioSeries.getCurrentItem();
-
-                if (i == adapter.audio_series.length - 1) {
-
-                    i = 0;
-                    binding.viewPagerAudioSeries.setCurrentItem(i, true);
-
-                } else {
-
-                    i++;
-                    binding.viewPagerAudioSeries.setCurrentItem(i, true);
-                }
-            }
-        };
-
-        timer = new Timer();
-
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(runnable);
-            }
-        }, 5000, 5000);
-
-        // arrays for recycle
-        ArrayList<AudioData> audios = new ArrayList<>();
-        audios.add(new AudioData(R.drawable.logo, "مقطع صوتى 3", "بسيط", 45 + "s"));
-
-
-        // enable recycle
-        audioAdapter.setData(audios);
-        binding.recyclerViewAudioId.setAdapter(audioAdapter);
-        RecyclerView.LayoutManager lm = new LinearLayoutManager(getContext());
-        binding.recyclerViewAudioId.setHasFixedSize(true);
-        binding.recyclerViewAudioId.setLayoutManager(lm);
+        retrofit();
 
         return view;
+    }
+
+    public void retrofit() {
+        AudioInterface interfacr = (AudioInterface) RetrofitClient.getClient().create(AudioInterface.class);
+        Call<List<AudioModel>> call = interfacr.getVideos();
+
+        call.enqueue(new Callback<List<AudioModel>>() {
+            @Override
+            public void onResponse(Call<List<AudioModel>> call, Response<List<AudioModel>> response) {
+                list = (ArrayList<AudioModel>) response.body();
+
+                list.add(new AudioModel(list.get(returnIndex)));
+                adapter = new RecyclerAudioAdapter(getContext(), list);
+                recyclerView.setAdapter(adapter);
+//
+//                videoView.setVideoPath(list.get(returnIndex).getVideoLink());
+//                MediaController mediaController = new MediaController(getContext());
+//                mediaController.setAnchorView(videoView);
+//                videoView.setMediaController(mediaController);
+
+            }
+
+            @Override
+            public void onFailure(Call<List<AudioModel>> call, Throwable t) {
+
+                Toast.makeText(getContext(), "please check Internet", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 }
