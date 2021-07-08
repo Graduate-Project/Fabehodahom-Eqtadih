@@ -1,0 +1,725 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at________Default_Changelist_.xml
+===================================================================
+--- .idea/shelf/Uncommitted_changes_before_Update_at________Default_Changelist_.xml	(revision a38e9615a41d460ad868127deb310164c5192c8c)
++++ .idea/shelf/Uncommitted_changes_before_Update_at________Default_Changelist_.xml	(revision a38e9615a41d460ad868127deb310164c5192c8c)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_٢٣_٠٦_٢٠٢١_٠٤_٥٧_م_[Default_Changelist]" date="1624460287166" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_٢٣_٠٦_٢٠٢١_٠٤_٥٧_م_[Default_Changelist]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at ٢٣/٠٦/٢٠٢١ ٠٤:٥٧ م [Default Changelist]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_٢٣_٠٦_٢٠٢١_٠٤_٥٧_م_[Default_Changelist]/shelved.patch
+===================================================================
+--- .idea/shelf/Uncommitted_changes_before_Update_at_٢٣_٠٦_٢٠٢١_٠٤_٥٧_م_[Default_Changelist]/shelved.patch	(revision a38e9615a41d460ad868127deb310164c5192c8c)
++++ .idea/shelf/Uncommitted_changes_before_Update_at_٢٣_٠٦_٢٠٢١_٠٤_٥٧_م_[Default_Changelist]/shelved.patch	(revision a38e9615a41d460ad868127deb310164c5192c8c)
+@@ -1,282 +0,0 @@
+-Index: app/src/main/res/layout/fragment_framgentfoeachchar.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:background=\"@drawable/home\"\r\n    android:layout_height=\"match_parent\"\r\n    >\r\n    <androidx.cardview.widget.CardView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"16dp\"\r\n\r\n        android:layout_margin=\"8dp\"\r\n        android:id=\"@+id/card\"\r\n        app:cardCornerRadius=\"16dp\"\r\n        android:elevation=\"8dp\"\r\n        >\r\n        <TextView\r\n\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:textStyle=\"bold\"\r\n            android:padding=\"10dp\"\r\n            android:textColor=\"#000\"\r\n            android:background=\"#FAF9F6\"\r\n            android:paddingTop=\"16dp\"\r\n            android:textSize=\"18sp\"\r\n            android:text=\"كان - \uF074- وضى الوجه ، بهى الطلعة، نحيل الجسم ، طويل القامة ، خفيف العارضين ، ترتاح العين لمرآه ، وتأنس النفس للقياه ، ويطمئن إليه الفؤاد. وكان إلى جانب ذلك رقيق الحاشية ، جم التواضع ، شديد الحياء وكان أثرم الشنيتين - أى مكسور الأسنان الأمامية - فقد كسرت أسنانه يوم أحد، فما رئى أهتم كان أحسن من أبى عبيدة .\r\nوصفه عبد الله بن عمر- \uF074- فقال :( ثلاثة من قريش أحسن قريشا أخلاقًا وأصبحها وجوها ، وأشدها حياة إن حدثوك لم يكذبوك، وإن حدثتهم لم يكذبوك : أبوبكر الصديق ، وعثمان بن عفان ، وأبو عبيدة بن الجراح).\r\n\"\r\n\r\n            android:id=\"@+id/textchar\"/>\r\n\r\n    </androidx.cardview.widget.CardView>\r\n\r\n\r\n    <LinearLayout\r\n        android:layout_marginTop=\"4dp\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:weightSum=\"2\"\r\n        android:layout_below=\"@id/card\"\r\n        android:layout_alignParentBottom=\"true\"\r\n        >\r\n        <Button\r\n            android:layout_weight=\"1\"\r\n            android:id=\"@+id/audiobtn\"\r\n            android:background=\"@drawable/btnstyle\"\r\n            android:layout_width=\"match_parent\"\r\n            android:textStyle=\"bold\"\r\n            android:textSize=\"18sp\"\r\n            android:textColor=\"#ffffff\"\r\n            android:text=\"صفات الشخصية\"\r\n            android:layout_height=\"50dp\"\r\n            android:layout_marginRight=\"2dp\"/>\r\n\r\n\r\n        <Button\r\n            android:id=\"@+id/attrbtn\"\r\n            android:layout_weight=\"1\"\r\n            android:text=\"إستمع\"\r\n            android:textStyle=\"bold\"\r\n            android:textColor=\"#ffffff\"\r\n            android:textSize=\"18sp\"\r\n            android:layout_width=\"match_parent\"\r\n            android:background=\"@drawable/btnstyle\"\r\n            android:layout_height=\"50dp\"/>\r\n    </LinearLayout>\r\n</RelativeLayout>\r\n\r\n\r\n\r\n\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+---- app/src/main/res/layout/fragment_framgentfoeachchar.xml	(revision be6a19bd0c09bddf71a88fb1eaf1abb4b5b97554)
+-+++ app/src/main/res/layout/fragment_framgentfoeachchar.xml	(date 1624457710471)
+-@@ -6,67 +6,75 @@
+-     android:background="@drawable/home"
+-     android:layout_height="match_parent"
+-     >
+--    <androidx.cardview.widget.CardView
+-+<!--    <com.github.barteksc.pdfviewer.PDFView-->
+-+<!--        android:id="@+id/pdfView"-->
+-+<!--        android:layout_width="match_parent"-->
+-+<!--        android:layout_height="match_parent"/>-->
+-+    <WebView
+-+        android:id="@+id/web"
+-         android:layout_width="match_parent"
+--        android:layout_height="wrap_content"
+--        android:layout_marginTop="16dp"
+--
+--        android:layout_margin="8dp"
+--        android:id="@+id/card"
+--        app:cardCornerRadius="16dp"
+--        android:elevation="8dp"
+--        >
+--        <TextView
+--
+--            android:layout_width="match_parent"
+--            android:layout_height="match_parent"
+--            android:textStyle="bold"
+--            android:padding="10dp"
+--            android:textColor="#000"
+--            android:background="#FAF9F6"
+--            android:paddingTop="16dp"
+--            android:textSize="18sp"
+--            android:text="كان - - وضى الوجه ، بهى الطلعة، نحيل الجسم ، طويل القامة ، خفيف العارضين ، ترتاح العين لمرآه ، وتأنس النفس للقياه ، ويطمئن إليه الفؤاد. وكان إلى جانب ذلك رقيق الحاشية ، جم التواضع ، شديد الحياء وكان أثرم الشنيتين - أى مكسور الأسنان الأمامية - فقد كسرت أسنانه يوم أحد، فما رئى أهتم كان أحسن من أبى عبيدة .
+--وصفه عبد الله بن عمر- - فقال :( ثلاثة من قريش أحسن قريشا أخلاقًا وأصبحها وجوها ، وأشدها حياة إن حدثوك لم يكذبوك، وإن حدثتهم لم يكذبوك : أبوبكر الصديق ، وعثمان بن عفان ، وأبو عبيدة بن الجراح).
+--"
+--
+--            android:id="@+id/textchar"/>
+--
+--    </androidx.cardview.widget.CardView>
+--
+--
+--    <LinearLayout
+--        android:layout_marginTop="4dp"
+--        android:layout_width="match_parent"
+--        android:layout_height="wrap_content"
+--        android:weightSum="2"
+--        android:layout_below="@id/card"
+--        android:layout_alignParentBottom="true"
+--        >
+--        <Button
+--            android:layout_weight="1"
+--            android:id="@+id/audiobtn"
+--            android:background="@drawable/btnstyle"
+--            android:layout_width="match_parent"
+--            android:textStyle="bold"
+--            android:textSize="18sp"
+--            android:textColor="#ffffff"
+--            android:text="صفات الشخصية"
+--            android:layout_height="50dp"
+--            android:layout_marginRight="2dp"/>
+-+        android:layout_height="match_parent"/>
+-+<!--    <androidx.cardview.widget.CardView-->
+-+<!--        android:layout_width="match_parent"-->
+-+<!--        android:layout_height="wrap_content"-->
+-+<!--        android:layout_marginTop="16dp"-->
+-+
+-+<!--        android:layout_margin="8dp"-->
+-+<!--        android:id="@+id/card"-->
+-+<!--        app:cardCornerRadius="16dp"-->
+-+<!--        android:elevation="8dp"-->
+-+<!--        >-->
+-+<!--        <TextView-->
+-+
+-+<!--            android:layout_width="match_parent"-->
+-+<!--            android:layout_height="match_parent"-->
+-+<!--            android:textStyle="bold"-->
+-+<!--            android:padding="10dp"-->
+-+<!--            android:textColor="#000"-->
+-+<!--            android:background="#FAF9F6"-->
+-+<!--            android:paddingTop="16dp"-->
+-+<!--            android:textSize="18sp"-->
+-+<!--            android:text="كان - - وضى الوجه ، بهى الطلعة، نحيل الجسم ، طويل القامة ، خفيف العارضين ، ترتاح العين لمرآه ، وتأنس النفس للقياه ، ويطمئن إليه الفؤاد. وكان إلى جانب ذلك رقيق الحاشية ، جم التواضع ، شديد الحياء وكان أثرم الشنيتين - أى مكسور الأسنان الأمامية - فقد كسرت أسنانه يوم أحد، فما رئى أهتم كان أحسن من أبى عبيدة .-->
+-+<!--وصفه عبد الله بن عمر- - فقال :( ثلاثة من قريش أحسن قريشا أخلاقًا وأصبحها وجوها ، وأشدها حياة إن حدثوك لم يكذبوك، وإن حدثتهم لم يكذبوك : أبوبكر الصديق ، وعثمان بن عفان ، وأبو عبيدة بن الجراح).-->
+-+<!--"-->
+-+
+-+<!--            android:id="@+id/textchar"/>-->
+-+
+-+<!--    </androidx.cardview.widget.CardView>-->
+- 
+- 
+--        <Button
+--            android:id="@+id/attrbtn"
+--            android:layout_weight="1"
+--            android:text="إستمع"
+--            android:textStyle="bold"
+--            android:textColor="#ffffff"
+--            android:textSize="18sp"
+--            android:layout_width="match_parent"
+--            android:background="@drawable/btnstyle"
+--            android:layout_height="50dp"/>
+--    </LinearLayout>
+-+<!--    <LinearLayout-->
+-+<!--        android:layout_marginTop="4dp"-->
+-+<!--        android:layout_width="match_parent"-->
+-+<!--        android:layout_height="wrap_content"-->
+-+<!--        android:weightSum="2"-->
+-+<!--       -->
+-+<!--        android:layout_alignParentBottom="true"-->
+-+<!--        >-->
+-+<!--        <Button-->
+-+<!--            android:layout_weight="1"-->
+-+<!--            android:id="@+id/audiobtn"-->
+-+<!--            android:background="@drawable/btnstyle"-->
+-+<!--            android:layout_width="match_parent"-->
+-+<!--            android:textStyle="bold"-->
+-+<!--            android:textSize="18sp"-->
+-+<!--            android:textColor="#ffffff"-->
+-+<!--            android:text="صفات الشخصية"-->
+-+<!--            android:layout_height="50dp"-->
+-+<!--            android:layout_marginRight="2dp"/>-->
+-+
+-+
+-+<!--        <Button-->
+-+<!--            android:id="@+id/attrbtn"-->
+-+<!--            android:layout_weight="1"-->
+-+<!--            android:text="إستمع"-->
+-+<!--            android:textStyle="bold"-->
+-+<!--            android:textColor="#ffffff"-->
+-+<!--            android:textSize="18sp"-->
+-+<!--            android:layout_width="match_parent"-->
+-+<!--            android:background="@drawable/btnstyle"-->
+-+<!--            android:layout_height="50dp"/>-->
+-+<!--    </LinearLayout>-->
+- </RelativeLayout>
+- 
+- 
+-Index: app/src/main/java/com/example/myproject/character/ContentOfEachChar.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package com.example.myproject.character;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.os.Bundle;\r\n\r\nimport com.example.myproject.R;\r\n\r\npublic class ContentOfEachChar extends AppCompatActivity {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_content_of_each_char);\r\n    }\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+---- app/src/main/java/com/example/myproject/character/ContentOfEachChar.java	(revision be6a19bd0c09bddf71a88fb1eaf1abb4b5b97554)
+-+++ app/src/main/java/com/example/myproject/character/ContentOfEachChar.java	(date 1624458044449)
+-@@ -3,14 +3,48 @@
+- import androidx.appcompat.app.AppCompatActivity;
+- 
+- import android.os.Bundle;
+-+import android.webkit.WebView;
+-+import android.widget.Toast;
+- 
+-+import com.example.myproject.NetWork.ApiInterface;
+- import com.example.myproject.R;
+-+import com.example.myproject.data.CompaionsStory;
+-+import com.github.barteksc.pdfviewer.PDFView;
+- 
+--public class ContentOfEachChar extends AppCompatActivity {
+-+import retrofit2.Call;
+-+import retrofit2.Callback;
+-+import retrofit2.Response;
+-+import retrofit2.Retrofit;
+-+import retrofit2.converter.gson.GsonConverterFactory;
+- 
+-+public class ContentOfEachChar extends AppCompatActivity { WebView pdfView;
+-     @Override
+-     protected void onCreate(Bundle savedInstanceState) {
+-         super.onCreate(savedInstanceState);
+-         setContentView(R.layout.activity_content_of_each_char);
+-+
+-+
+-+        pdfView=findViewById(R.id.web);
+-+
+-+        pdfView.getSettings().setJavaScriptEnabled(true);
+-+        pdfView.loadUrl("https://www.docdroid.net/0AwVk6S/abo-bkr-alsdyk-rdy-allh-aanh-pdf");
+-+       // pdfView.fromAsset("saiedidnzaid.pdf").load();
+-+//        Retrofit r=new Retrofit.Builder().baseUrl("https://simpleapp-nodejs.herokuapp.com/")
+-+//                .addConverterFactory(GsonConverterFactory.create()).build();
+-+//
+-+//        ApiInterface apiInterface=r.create(ApiInterface.class);
+-+//        Call<CompaionsStory> call=apiInterface.getStory();
+-+//        call.enqueue(new Callback<CompaionsStory>() {
+-+//            @Override
+-+//            public void onResponse(Call<CompaionsStory> call, Response<CompaionsStory> response) {
+-+//                w.loadUrl(response.body().getNarration());
+-+//            }
+-+//
+-+//            @Override
+-+//            public void onFailure(Call<CompaionsStory> call, Throwable t) {
+-+//                Toast.makeText(ContentOfEachChar.this, "NoResponse", Toast.LENGTH_SHORT).show();
+-+//
+-+//            }
+-+//        });
+-     }
+- }
+-Index: app/build.gradle
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>plugins {\r\n    id 'com.android.application'\r\n}\r\n\r\nandroid {\r\n    compileSdkVersion 30\r\n    buildToolsVersion \"30.0.3\"\r\n    defaultConfig {\r\n        applicationId \"com.example.myproject\"\r\n        minSdkVersion 17\r\n        targetSdkVersion 30\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n\r\n    buildFeatures {\r\n        dataBinding true\r\n    }\r\n\r\n\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation 'androidx.appcompat:appcompat:1.3.0'\r\n    implementation 'com.google.android.material:material:1.3.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'\r\n    implementation 'androidx.legacy:legacy-support-v4:1.0.0'\r\n    testImplementation 'junit:junit:4.13.2'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.2'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'\r\n\r\n    implementation 'me.relex:circleindicator:2.1.4'\r\n\r\n    implementation 'de.hdodenhof:circleimageview:3.1.0'\r\n\r\n    // for slide\r\n    implementation 'com.github.bumptech.glide:glide:4.11.0'\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+---- app/build.gradle	(revision be6a19bd0c09bddf71a88fb1eaf1abb4b5b97554)
+-+++ app/build.gradle	(date 1624400181493)
+-@@ -37,12 +37,14 @@
+- 
+-     implementation 'androidx.appcompat:appcompat:1.3.0'
+-     implementation 'com.google.android.material:material:1.3.0'
+-+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+-     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+-     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+-     testImplementation 'junit:junit:4.13.2'
+-     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+-     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+--
+-+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+-+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+-     implementation 'me.relex:circleindicator:2.1.4'
+- 
+-     implementation 'de.hdodenhof:circleimageview:3.1.0'
+-Index: app/src/main/AndroidManifest.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.example.myproject\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.MyProject\">\r\n        <activity android:name=\".character.ContentOfEachChar\"></activity>\r\n        <activity android:name=\".ui.MainActivity\" />\r\n        <activity android:name=\".ui.SplashActivity\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+---- app/src/main/AndroidManifest.xml	(revision be6a19bd0c09bddf71a88fb1eaf1abb4b5b97554)
+-+++ app/src/main/AndroidManifest.xml	(date 1624397189393)
+-@@ -1,8 +1,9 @@
+- <?xml version="1.0" encoding="utf-8"?>
+- <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-     package="com.example.myproject">
+--
+-+    <uses-permission android:name="android.permission.INTERNET"/>
+-     <application
+-+
+-         android:allowBackup="true"
+-         android:icon="@mipmap/ic_launcher"
+-         android:label="@string/app_name"
+-Index: .idea/vcs.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n    <mapping directory=\"$PROJECT_DIR$/../..\" vcs=\"Git\" />\r\n    <mapping directory=\"$PROJECT_DIR$\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+---- .idea/vcs.xml	(revision be6a19bd0c09bddf71a88fb1eaf1abb4b5b97554)
+-+++ .idea/vcs.xml	(date 1624385014510)
+-@@ -1,7 +1,6 @@
+- <?xml version="1.0" encoding="UTF-8"?>
+- <project version="4">
+-   <component name="VcsDirectoryMappings">
+--    <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
+-     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+-   </component>
+- </project>
+-\ No newline at end of file
+-Index: .idea/runConfigurations.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"RunConfigurationProducerService\">\r\n    <option name=\"ignoredProducers\">\r\n      <set>\r\n        <option value=\"org.jetbrains.plugins.gradle.execution.test.runner.AllInPackageGradleConfigurationProducer\" />\r\n        <option value=\"org.jetbrains.plugins.gradle.execution.test.runner.TestClassGradleConfigurationProducer\" />\r\n        <option value=\"org.jetbrains.plugins.gradle.execution.test.runner.TestMethodGradleConfigurationProducer\" />\r\n      </set>\r\n    </option>\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+---- .idea/runConfigurations.xml	(revision be6a19bd0c09bddf71a88fb1eaf1abb4b5b97554)
+-+++ .idea/runConfigurations.xml	(date 1624389595323)
+-@@ -3,6 +3,7 @@
+-   <component name="RunConfigurationProducerService">
+-     <option name="ignoredProducers">
+-       <set>
+-+        <option value="com.android.tools.idea.compose.preview.runconfiguration.ComposePreviewRunConfigurationProducer" />
+-         <option value="org.jetbrains.plugins.gradle.execution.test.runner.AllInPackageGradleConfigurationProducer" />
+-         <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestClassGradleConfigurationProducer" />
+-         <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestMethodGradleConfigurationProducer" />
+Index: app/src/main/java/com/example/myproject/BookDetailActvity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/myproject/BookDetailActvity.java	(date 1625092816149)
++++ app/src/main/java/com/example/myproject/BookDetailActvity.java	(date 1625092816149)
+@@ -0,0 +1,14 @@
++package com.example.myproject;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++
++public class BookDetailActvity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_book_detail_actvity);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_framgentfoeachchar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:background=\"@drawable/home\"\r\n    android:layout_height=\"match_parent\"\r\n    >\r\n<!--    <TextView-->\r\n<!--        android:id=\"@+id/txt\"-->\r\n<!--        android:textColor=\"#000000\"-->\r\n<!--        android:layout_width=\"match_parent\"-->\r\n<!--        android:layout_height=\"match_parent\"-->\r\n<!--        android:textSize=\"40dp\"/>-->\r\n    <WebView\r\n        android:id=\"@+id/web\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"/>\r\n\r\n\r\n    <LinearLayout\r\n        android:layout_marginTop=\"4dp\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:weightSum=\"2\"\r\n        android:layout_above=\"@id/web\"\r\n         android:orientation=\"horizontal\"\r\n        android:layout_marginBottom=\"8dp\"\r\n        android:layout_alignParentBottom=\"true\"\r\n        >\r\n\r\n        <Button\r\n            android:layout_weight=\"1\"\r\n            android:id=\"@+id/audio\"\r\n            android:background=\"@drawable/btnstyle\"\r\n            android:layout_width=\"match_parent\"\r\n            android:textStyle=\"bold\"\r\n            android:textSize=\"18sp\"\r\n            android:textColor=\"#ffffff\"\r\n            android:text=\"@string/charattribute\"\r\n            android:layout_height=\"50dp\"\r\n            android:layout_marginRight=\"2dp\"/>\r\n\r\n\r\n        <Button\r\n            android:id=\"@+id/attribbtn\"\r\n            android:layout_weight=\"1\"\r\n            android:text=\"@string/charaudio\"\r\n            android:textStyle=\"bold\"\r\n            android:textColor=\"#ffffff\"\r\n            android:textSize=\"18sp\"\r\n            android:layout_width=\"match_parent\"\r\n            android:background=\"@drawable/btnstyle\"\r\n            android:layout_height=\"50dp\"/>\r\n    </LinearLayout>\r\n</RelativeLayout>\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_framgentfoeachchar.xml	(revision a38e9615a41d460ad868127deb310164c5192c8c)
++++ app/src/main/res/layout/fragment_framgentfoeachchar.xml	(date 1625084845610)
+@@ -6,12 +6,6 @@
+     android:background="@drawable/home"
+     android:layout_height="match_parent"
+     >
+-<!--    <TextView-->
+-<!--        android:id="@+id/txt"-->
+-<!--        android:textColor="#000000"-->
+-<!--        android:layout_width="match_parent"-->
+-<!--        android:layout_height="match_parent"-->
+-<!--        android:textSize="40dp"/>-->
+     <WebView
+         android:id="@+id/web"
+         android:layout_width="match_parent"
+Index: app/src/main/res/layout/activity_book_detail_actvity.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_book_detail_actvity.xml	(date 1625093238367)
++++ app/src/main/res/layout/activity_book_detail_actvity.xml	(date 1625093238367)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="utf-8"?>
++<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".BookDetailActvity">
++
++    <androidx.fragment.app.FragmentContainerView
++        android:id="@+id/fragmentContainerView2"
++        android:name="com.example.myproject.DetailsOFBooks"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        tools:layout_editor_absoluteX="٢٦٠dp"
++        tools:layout_editor_absoluteY="٤١٠dp"
++        tools:layout="@layout/activity_book_detail_actvity" />
++</FrameLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/myproject/library/LibraryFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.myproject.library;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\n\r\nimport androidx.databinding.DataBindingUtil;\r\nimport androidx.fragment.app.Fragment;\r\nimport androidx.recyclerview.widget.LinearLayoutManager;\r\n\r\nimport com.example.myproject.Adapter.RecyclerLibAdapter;\r\nimport com.example.myproject.R;\r\nimport com.example.myproject.databinding.FragmentLibraryBinding;\r\nimport com.example.myproject.pojo.LibraryData;\r\n\r\nimport java.util.ArrayList;\r\n\r\n\r\npublic class LibraryFragment extends Fragment {\r\n\r\n    FragmentLibraryBinding binding;\r\n    RecyclerLibAdapter adapter;\r\n\r\n    public LibraryFragment() {\r\n        // Required empty public constructor\r\n    }\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\r\n                             Bundle savedInstanceState) {\r\n        // Inflate the layout for this fragment\r\n        binding = FragmentLibraryBinding.inflate(inflater, container, false);\r\n        View view = binding.getRoot();\r\n\r\n        // recycler\r\n        adapter = new RecyclerLibAdapter();\r\n\r\n        ArrayList<LibraryData> data = new ArrayList<>();\r\n        data.add(new LibraryData(R.drawable.book_sefatelsafwa, getString(R.string.book_ss)));\r\n        data.add(new LibraryData(R.drawable.book_regal, getString(R.string.book_man_around_massenger)));\r\n        data.add(new LibraryData(R.drawable.book_startend, getString(R.string.book_start_end)));\r\n        data.add(new LibraryData(R.drawable.book_sefatelsafwa, getString(R.string.book_ss)));\r\n        data.add(new LibraryData(R.drawable.book_regal, getString(R.string.book_man_around_massenger)));\r\n        data.add(new LibraryData(R.drawable.book_startend, getString(R.string.book_start_end)));\r\n\r\n        adapter.setData(data, new RecyclerLibAdapter.ItemClickListener() {\r\n            @Override\r\n            public void onItemClick(LibraryData data) {\r\n\r\n            }\r\n        });\r\n        binding.rvLibrary.setAdapter(adapter);\r\n\r\n        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);\r\n        binding.rvLibrary.setLayoutManager(layoutManager);\r\n        binding.rvLibrary.setHasFixedSize(true);\r\n\r\n\r\n        return view;\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/myproject/library/LibraryFragment.java	(revision a38e9615a41d460ad868127deb310164c5192c8c)
++++ app/src/main/java/com/example/myproject/library/LibraryFragment.java	(date 1625093238821)
+@@ -1,5 +1,6 @@
+ package com.example.myproject.library;
+ 
++import android.content.Intent;
+ import android.os.Bundle;
+ import android.view.LayoutInflater;
+ import android.view.View;
+@@ -7,9 +8,12 @@
+ 
+ import androidx.databinding.DataBindingUtil;
+ import androidx.fragment.app.Fragment;
++import androidx.fragment.app.FragmentManager;
++import androidx.fragment.app.FragmentTransaction;
+ import androidx.recyclerview.widget.LinearLayoutManager;
+ 
+ import com.example.myproject.Adapter.RecyclerLibAdapter;
++import com.example.myproject.BookDetailActvity;
+ import com.example.myproject.R;
+ import com.example.myproject.databinding.FragmentLibraryBinding;
+ import com.example.myproject.pojo.LibraryData;
+@@ -47,7 +51,7 @@
+         adapter.setData(data, new RecyclerLibAdapter.ItemClickListener() {
+             @Override
+             public void onItemClick(LibraryData data) {
+-
++               startActivity(new Intent(getContext(), BookDetailActvity.class));
+             }
+         });
+         binding.rvLibrary.setAdapter(adapter);
+Index: app/src/main/res/drawable/download.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/download.xml	(date 1625097140306)
++++ app/src/main/res/drawable/download.xml	(date 1625097140306)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#7A3119"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="#7A3119" android:pathData="M20,12l-1.41,-1.41L13,16.17V4h-2v12.17l-5.58,-5.59L4,12l8,8 8,-8z"/>
++</vector>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" default=\"true\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n  <component name=\"VisualizationToolProject\">\r\n    <option name=\"state\">\r\n      <ProjectState>\r\n        <option name=\"scale\" value=\"0.1952920662598082\" />\r\n      </ProjectState>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision a38e9615a41d460ad868127deb310164c5192c8c)
++++ .idea/misc.xml	(date 1625179842813)
+@@ -9,7 +9,7 @@
+   <component name="VisualizationToolProject">
+     <option name="state">
+       <ProjectState>
+-        <option name="scale" value="0.1952920662598082" />
++        <option name="scale" value="0.18" />
+       </ProjectState>
+     </option>
+   </component>
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.example.myproject\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"فبهداهم اقتده\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.MyProject\">\r\n        <activity android:name=\".AttributeActivity\"></activity>\r\n        <activity android:name=\".audio.playerActivity\" />\r\n        <activity android:name=\".character.ContentOfEachChar\" />\r\n        <activity android:name=\".ui.MainActivity\" />\r\n        <activity android:name=\".ui.SplashActivity\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision a38e9615a41d460ad868127deb310164c5192c8c)
++++ app/src/main/AndroidManifest.xml	(date 1625235127706)
+@@ -11,7 +11,10 @@
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+         android:theme="@style/Theme.MyProject">
+-        <activity android:name=".AttributeActivity"></activity>
++        <activity android:name=".BookDetailActvity"
++            >
++        </activity>
++        <activity android:name=".AttributeActivity" />
+         <activity android:name=".audio.playerActivity" />
+         <activity android:name=".character.ContentOfEachChar" />
+         <activity android:name=".ui.MainActivity" />
+Index: app/src/main/java/com/example/myproject/character/framgentfoeachchar.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.myproject.character;\r\n\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\n\r\nimport androidx.fragment.app.Fragment;\r\n\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.webkit.WebView;\r\nimport android.webkit.WebViewClient;\r\nimport android.widget.Button;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport com.example.myproject.NetWork.ApiInterface;\r\nimport com.example.myproject.R;\r\nimport com.example.myproject.audio.playerActivity;\r\nimport com.example.myproject.data.CompaionsStory;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\nimport retrofit2.Call;\r\nimport retrofit2.Callback;\r\nimport retrofit2.Response;\r\nimport retrofit2.Retrofit;\r\nimport retrofit2.converter.gson.GsonConverterFactory;\r\n\r\n/**\r\n * A simple {@link Fragment} subclass.\r\n */\r\npublic class framgentfoeachchar extends Fragment {\r\n View v;\r\n    int returnIndex;\r\n    Button btn ;\r\n    WebView webView;\r\n    public framgentfoeachchar() {\r\n        // Required empty public constructor\r\n    }\r\n\r\n\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\r\n                             Bundle savedInstanceState) {\r\n        v=inflater.inflate(R.layout.fragment_framgentfoeachchar, container, false);\r\n       returnIndex= ((ContentOfEachChar) getActivity()).getIntent().getIntExtra(\"index\",1);\r\n       webView=v.findViewById(R.id.web);\r\n      //  Toast.makeText(getContext(), \"index\"+c, Toast.LENGTH_SHORT).show();\r\n\r\n\r\n        btnaudio();\r\n        retrofit();\r\n        return v;\r\n\r\n\r\n\r\n    }\r\n\r\n    public  void retrofit(){\r\n                Retrofit r=new Retrofit.Builder().baseUrl(\"https://simpleapp-nodejs.herokuapp.com/\")\r\n                .addConverterFactory(GsonConverterFactory.create()).build();\r\n\r\n        ApiInterface apiInterface=r.create(ApiInterface.class);\r\n        Call<List<CompaionsStory>> call=apiInterface.getStory();\r\n        call.enqueue(new Callback<List<CompaionsStory>>() {\r\n\r\n            @Override\r\n            public void onResponse(Call<List<CompaionsStory>> call, Response<List<CompaionsStory>> response) {\r\n                List<CompaionsStory> myheroList = response.body();\r\n               // webView.setText(myheroList.get(returnIndex).getPersonName());\r\n                webView.getSettings().setJavaScriptEnabled(true);\r\n                webView.getSettings().setSaveFormData(true);\r\n                webView.setWebViewClient(new WebViewClient());\r\n                webView.loadUrl(myheroList.get(returnIndex).getNarration());\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onFailure(Call<List<CompaionsStory>> call, Throwable t) {\r\n\r\n                Toast.makeText(getContext(), \"An error has occured\", Toast.LENGTH_LONG).show();\r\n            }\r\n        });\r\n    }\r\n    //this method for text to speech activity\r\n    void btnaudio(){\r\n        btn=v.findViewById(R.id.attribbtn);\r\n        btn.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                Intent n=new Intent(getActivity(), playerActivity.class);\r\n                startActivity(n);\r\n            }\r\n        });\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/myproject/character/framgentfoeachchar.java	(revision a38e9615a41d460ad868127deb310164c5192c8c)
++++ app/src/main/java/com/example/myproject/character/framgentfoeachchar.java	(date 1625084923160)
+@@ -1,25 +1,24 @@
+ package com.example.myproject.character;
+-
+-
+ import android.content.Intent;
+ import android.os.Bundle;
+-
+ import androidx.fragment.app.Fragment;
+-
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+ import android.webkit.WebView;
+ import android.webkit.WebViewClient;
+ import android.widget.Button;
+-import android.widget.TextView;
+ import android.widget.Toast;
+ 
+ import com.example.myproject.NetWork.ApiInterface;
+ import com.example.myproject.R;
+ import com.example.myproject.audio.playerActivity;
+ import com.example.myproject.data.CompaionsStory;
++import com.github.barteksc.pdfviewer.PDFView;
+ 
++import java.io.IOException;
++import java.net.MalformedURLException;
++import java.net.URL;
+ import java.util.ArrayList;
+ import java.util.List;
+ 
+@@ -70,12 +69,13 @@
+ 
+             @Override
+             public void onResponse(Call<List<CompaionsStory>> call, Response<List<CompaionsStory>> response) {
+-                List<CompaionsStory> myheroList = response.body();
+-               // webView.setText(myheroList.get(returnIndex).getPersonName());
++                List<CompaionsStory> stories = response.body();
++
+                 webView.getSettings().setJavaScriptEnabled(true);
+                 webView.getSettings().setSaveFormData(true);
+                 webView.setWebViewClient(new WebViewClient());
+-                webView.loadUrl(myheroList.get(returnIndex).getNarration());
++                webView.loadUrl(stories.get(returnIndex).getNarration());
++                webView.loadUrl(stories.get(returnIndex).getNarration());
+ 
+             }
+ 
+Index: app/src/main/res/drawable/share.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/share.xml	(date 1625097127434)
++++ app/src/main/res/drawable/share.xml	(date 1625097127434)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#7A3119"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="#7A3119" android:pathData="M18,16.08c-0.76,0 -1.44,0.3 -1.96,0.77L8.91,12.7c0.05,-0.23 0.09,-0.46 0.09,-0.7s-0.04,-0.47 -0.09,-0.7l7.05,-4.11c0.54,0.5 1.25,0.81 2.04,0.81 1.66,0 3,-1.34 3,-3s-1.34,-3 -3,-3 -3,1.34 -3,3c0,0.24 0.04,0.47 0.09,0.7L8.04,9.81C7.5,9.31 6.79,9 6,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3c0.79,0 1.5,-0.31 2.04,-0.81l7.12,4.16c-0.05,0.21 -0.08,0.43 -0.08,0.65 0,1.61 1.31,2.92 2.92,2.92 1.61,0 2.92,-1.31 2.92,-2.92s-1.31,-2.92 -2.92,-2.92z"/>
++</vector>
+Index: app/src/main/res/layout/fragment_details_o_f_books.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_details_o_f_books.xml	(date 1625239420922)
++++ app/src/main/res/layout/fragment_details_o_f_books.xml	(date 1625239420922)
+@@ -0,0 +1,117 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++    android:orientation="vertical"
++        xmlns:android="http://schemas.android.com/apk/res/android"
++        xmlns:app="http://schemas.android.com/apk/res-auto"
++        android:weightSum="4">
++        <View
++            android:layout_width="match_parent"
++            android:layout_height="10dp"
++            android:layout_weight="1"
++            />
++    <androidx.cardview.widget.CardView
++                android:layout_width="120dp"
++                android:layout_height="150dp"
++                app:cardCornerRadius="10dp"
++                android:layout_gravity="center_horizontal"
++                android:layout_margin="6dp">
++
++                <LinearLayout
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent"
++                    android:orientation="vertical">
++
++                    <ImageView
++                        android:id="@+id/newbookimg"
++                        android:layout_width="100dp"
++                        android:layout_height="100dp"
++                        android:layout_gravity="center"
++                        android:layout_marginTop="5dp"
++                        android:scaleType="fitXY"
++                        android:src="@drawable/book_startend" />
++
++                    <TextView
++                        android:id="@+id/newnamebook"
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:layout_marginTop="3dp"
++                        android:layout_gravity="center"
++                        android:text="@string/book_man_around_massenger" />
++
++
++                </LinearLayout>
++
++            </androidx.cardview.widget.CardView>
++    <androidx.cardview.widget.CardView
++                    android:layout_width="150dp"
++                    android:layout_height="40dp"
++                    android:layout_gravity="center_horizontal"
++                    app:cardElevation="8dp"
++                    app:cardCornerRadius="10dp"
++                    android:id="@+id/cr2"
++                    >
++                    <ImageView
++                        android:layout_width="20dp"
++                        android:layout_height="20dp"
++                        android:id="@+id/share"
++                        android:src="@drawable/download"
++                        android:layout_gravity="center_vertical"
++                        android:layout_marginLeft="10dp"
++                        />
++                    <ImageView
++                        android:layout_width="20dp"
++                        android:layout_height="20dp"
++                        android:src="@drawable/share"
++                        android:layout_gravity="center_vertical|end"
++                        android:layout_marginRight="10dp"
++                        />
++
++
++                </androidx.cardview.widget.CardView>
++                <ImageView
++                    android:layout_gravity="center_horizontal"
++                    android:id="@+id/img"
++                    android:layout_width="40dp"
++                    android:layout_height="40dp"
++                    android:src="@drawable/book"/>
++            <androidx.core.widget.NestedScrollView
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"/>
++                <TextView
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:id="@+id/shortext"
++                    android:layout_margin="8dp"
++                    android:layout_gravity="center_horizontal"
++                    android:layout_marginBottom="20dp"
++                    android:textColor="#7A3119"
++                    android:text="@string/book_des_start_end"
++                    android:textSize="18sp"
++                    android:padding="10dp"
++                    />
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:gravity="center_horizontal">
++        <Button
++            android:id="@+id/gotobook"
++            android:layout_width="200dp"
++            android:layout_height="wrap_content"
++            android:text="الذهاب الي الموقع"
++            android:textStyle="bold"
++            android:textColor="#ffffff"
++            android:gravity="center_horizontal"
++            android:padding="10dp"
++            android:textSize="16sp"
++            android:layout_marginBottom="20dp"
++            android:background="@drawable/btnstyle"/>
++
++    </LinearLayout>
++
++
++
++    </LinearLayout>
++
++
+Index: app/src/main/java/com/example/myproject/DetailsOFBooks.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/myproject/DetailsOFBooks.java	(date 1625086772406)
++++ app/src/main/java/com/example/myproject/DetailsOFBooks.java	(date 1625086772406)
+@@ -0,0 +1,64 @@
++package com.example.myproject;
++
++import android.os.Bundle;
++
++import androidx.fragment.app.Fragment;
++
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++
++/**
++ * A simple {@link Fragment} subclass.
++ * Use the {@link DetailsOFBooks#newInstance} factory method to
++ * create an instance of this fragment.
++ */
++public class DetailsOFBooks extends Fragment {
++
++    // TODO: Rename parameter arguments, choose names that match
++    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
++    private static final String ARG_PARAM1 = "param1";
++    private static final String ARG_PARAM2 = "param2";
++
++    // TODO: Rename and change types of parameters
++    private String mParam1;
++    private String mParam2;
++
++    public DetailsOFBooks() {
++        // Required empty public constructor
++    }
++
++    /**
++     * Use this factory method to create a new instance of
++     * this fragment using the provided parameters.
++     *
++     * @param param1 Parameter 1.
++     * @param param2 Parameter 2.
++     * @return A new instance of fragment DetailsOFBooks.
++     */
++    // TODO: Rename and change types and number of parameters
++    public static DetailsOFBooks newInstance(String param1, String param2) {
++        DetailsOFBooks fragment = new DetailsOFBooks();
++        Bundle args = new Bundle();
++        args.putString(ARG_PARAM1, param1);
++        args.putString(ARG_PARAM2, param2);
++        fragment.setArguments(args);
++        return fragment;
++    }
++
++    @Override
++    public void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        if (getArguments() != null) {
++            mParam1 = getArguments().getString(ARG_PARAM1);
++            mParam2 = getArguments().getString(ARG_PARAM2);
++        }
++    }
++
++    @Override
++    public View onCreateView(LayoutInflater inflater, ViewGroup container,
++                             Bundle savedInstanceState) {
++        // Inflate the layout for this fragment
++        return inflater.inflate(R.layout.fragment_details_o_f_books, container, false);
++    }
++}
+\ No newline at end of file
