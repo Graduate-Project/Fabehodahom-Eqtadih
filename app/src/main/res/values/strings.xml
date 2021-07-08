@@ -49,4 +49,6 @@
     <string name="AttrChar">شخصيات الصفة</string>
     <string name="back_to_home">الرجوع الي الموقع</string>
     <string name="ss_author">ابن الجوزى</string>
+    <string name="charlib">المكتبة المرئية للصحابة</string>
+    <string name="attlib">المكتبة المرئية للصفات</string>
 </resources>

@@ -21,6 +21,7 @@ import com.example.myproject.NetWork.LibInterface;
 import com.example.myproject.NetWork.RetrofitClient;
 import com.example.myproject.data.CompaionsStory;
 import com.example.myproject.data.LibraryModel;
+import com.example.myproject.library.LibraryFragment;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -59,53 +60,37 @@ public class DetailsOFBooks extends Fragment {
         book_nam = v.findViewById(R.id.book_name);
         book_descrition = v.findViewById(R.id.book_disc);
         go_to_link = v.findViewById(R.id.back_lib);
-
-        //Responce of API
-        retrofit();
-
+           showdetails();
 
         return v;
     }
+    LibraryModel libraryModel;
+    public  void showdetails(){
+        ArrayList<LibraryModel> a=new ArrayList<>();
+        a=  LibraryFragment.data;
 
-//    public void initFvs(View v) {
-//        this.v = v;
-//
-//
-//    }
+        for (int i = 0; i < a.size(); i++) {
+            if (a.get(i).getBookId()==returnposition){
+                libraryModel=a.get(i);
+            }
 
-    public void retrofit() {
-        try {
-
-
-            LibInterface libInterface = (LibInterface) RetrofitClient.getClient().create(LibInterface.class);
-            libInterface.getAllLib().enqueue(new Callback<List<LibraryModel>>() {
-                @Override
-                public void onResponse(Call<List<LibraryModel>> call, Response<List<LibraryModel>> response) {
-                    List<LibraryModel> list=response.body();
-                    Picasso.get().load(list.get(returnposition).getCoverPic()).into(book_image);
-                    auther_book.setText(list.get(returnposition).getAuthor());
-                    book_nam.setText(list.get(returnposition).getBookName());
-                    book_descrition.setText(list.get(returnposition).getBookDiscription());
-                    go_to_link.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            String url = list.get(returnposition).getBookLink();
-                            Intent i = new Intent(Intent.ACTION_VIEW);
-                            i.setData(Uri.parse(url));
-                            startActivity(i);
-                        }
-                    });
-                }
-
-                @Override
-                public void onFailure(Call<List<LibraryModel>> call, Throwable t) {
-                    Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-
-                }
-            });
-
-        } catch (Exception e) {
-            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+        Picasso.get().load(libraryModel.getCoverPic()).into(book_image);
+        auther_book.setText(libraryModel.getAuthor());
+        book_nam.setText(libraryModel.getBookName());
+        book_descrition.setText(libraryModel.getBookDiscription());
+        ArrayList<LibraryModel> finalA = a;
+        go_to_link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url =libraryModel.getBookLink();
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
     }
+
+
+
 }
