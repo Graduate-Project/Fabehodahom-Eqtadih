@@ -54,4 +54,15 @@
     <string name="serieName">اسم السلسلة</string>
     <string name="videoName">اسم الفيديو</string>
     <string name="instructorName">اسم الشيخ</string>
+    <string name="char_place">استخراج الاماكن</string>
+    <string name="char_aboobida">أبو عبيدة بن الجراح</string>
+    <string name="char_ali">علي بن أبى طالب</string>
+    <string name="char_abobakr">أبو بكر الصديق</string>
+    <string name="char_omar">عمر بن الخطاب</string>
+    <string name="char_saad">سعد بن أبى وقاص</string>
+    <string name="char_osman">عثمان بن عفان</string>
+    <string name="char_said">سعيد بن زيد</string>
+    <string name="char_talha">طلحه بن عبيد الله</string>
+    <string name="char_sbair">الزبير بن العوام</string>
+    <string name="char_abdrahman">عبدالرحمن بن عوف</string>
 </resources>

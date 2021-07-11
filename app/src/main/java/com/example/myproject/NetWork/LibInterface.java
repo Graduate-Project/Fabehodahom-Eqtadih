@@ -3,13 +3,14 @@ import com.example.myproject.data.LibraryModel;
 
 import java.util.List;
 
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface LibInterface {
     @GET("allbooks")
-    public Call<List<LibraryModel>> getAllLib();
+    public Observable<List<LibraryModel>> getAllLib();
     @GET("allbooks")
-    public Call<LibraryModel> getinfo();
+    public Observable<LibraryModel> getinfo();
 
 }

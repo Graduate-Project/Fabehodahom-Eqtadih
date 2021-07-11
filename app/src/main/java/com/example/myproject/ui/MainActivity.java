@@ -19,7 +19,7 @@ import com.example.myproject.home.HomeFragment;
 import com.example.myproject.library.LibraryFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     ActivityMainBinding binding;
     // returnpos
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // listener nav bar
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =  new
             BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {

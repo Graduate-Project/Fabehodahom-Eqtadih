@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/item_abobakr"
+        android:title="@string/char_abobakr"/>
+
+    <item android:id="@+id/item_omar"
+        android:title="@string/char_omar"/>
+
+    <item android:id="@+id/item_osman"
+        android:title="@string/char_osman"/>
+
+    <item android:id="@+id/item_ali"
+        android:title="@string/char_ali"/>
+
+    <item android:id="@+id/item_saad"
+        android:title="@string/char_saad"/>
+
+    <item android:id="@+id/item_aboobida"
+        android:title="@string/char_aboobida"/>
+
+
+</menu>

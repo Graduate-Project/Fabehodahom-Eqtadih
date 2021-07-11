@@ -24,6 +24,7 @@
             android:background="@drawable/left_radiud"
             android:text="@string/AttrChar"
             android:textColor="#ffffff"
+            android:onClick="showPopup"
             android:textSize="18sp"
             android:textStyle="bold" />
 

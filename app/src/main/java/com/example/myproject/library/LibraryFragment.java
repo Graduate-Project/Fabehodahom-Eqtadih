@@ -21,6 +21,12 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -73,13 +79,20 @@ public class LibraryFragment extends Fragment {
 
 
         LibInterface apiInterface = (LibInterface) RetrofitClient.getClient().create(LibInterface.class);
-        Call<List<LibraryModel>> call = apiInterface.getAllLib();
+        Observable<List<LibraryModel>> observable = apiInterface.getAllLib()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
 
-        call.enqueue(new Callback<List<LibraryModel>>() {
+        Observer<List<LibraryModel>> observer = new Observer<List<LibraryModel>>() {
             @Override
-            public void onResponse(Call<List<LibraryModel>> call, Response<List<LibraryModel>> response) {
+            public void onSubscribe(@NonNull Disposable d) {
 
-                data = (ArrayList<LibraryModel>) response.body();
+            }
+
+            @Override
+            public void onNext(@NonNull List<LibraryModel> libraryModels) {
+
+                data = (ArrayList<LibraryModel>) libraryModels;
 
                 for (int i = 0; i < data.size(); i++) {
 
@@ -101,17 +114,57 @@ public class LibraryFragment extends Fragment {
                 binding.rvattribueLibrary.setAdapter(adapter);
                 adapter2 = new RecyclerLibAdapter(getContext(), sefat);
                 binding.rvLibrary.setAdapter(adapter2);
-
-
-
             }
 
             @Override
-            public void onFailure(Call<List<LibraryModel>> call, Throwable t) {
+            public void onError(@NonNull Throwable e) {
+
                 Toast.makeText(getContext(), "please check Internet", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onComplete() {
 
             }
-        });
+        };
+
+        observable.subscribe(observer);
+//
+//        call.enqueue(new Callback<List<LibraryModel>>() {
+//            @Override
+//            public void onResponse(Call<List<LibraryModel>> call, Response<List<LibraryModel>> response) {
+//
+//                data = (ArrayList<LibraryModel>) response.body();
+//
+//                for (int i = 0; i < data.size(); i++) {
+//
+//                    String a = data.get(i).getBookCategory();
+//
+//                    if ((a.equals("0"))) {
+//
+//                        sefat.add(data.get(i));
+//
+//                    } else {
+//                        if ((a.equals("1")))
+//
+//                            charcter.add(data.get(i));
+//
+//                    }
+//                }
+//                binding.pr.setVisibility(View.GONE);
+//                adapter = new RecyclerLibAdapter(getContext(), charcter);
+//                binding.rvattribueLibrary.setAdapter(adapter);
+//                adapter2 = new RecyclerLibAdapter(getContext(), sefat);
+//                binding.rvLibrary.setAdapter(adapter2);
+
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<LibraryModel>> call, Throwable t) {
+//                Toast.makeText(getContext(), "please check Internet", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
 
     }
 }

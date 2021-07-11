@@ -3,10 +3,12 @@ package com.example.myproject.attribute;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -22,13 +24,21 @@ import com.github.barteksc.pdfviewer.PDFView;
 
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Frag_Each_attrib extends Fragment {
+public class Frag_Each_attrib extends Fragment implements PopupMenu.OnMenuItemClickListener {
+
 
     View v ;
     int returnIntex;
@@ -52,50 +62,113 @@ public class Frag_Each_attrib extends Fragment {
 
         webView = v.findViewById(R.id.web_attr);
 
-        listenBtn();
         attrRetrofit();
 
+       // showPopup(v);
         return v;
     }
 
-    void listenBtn(){
-        attr_btn = v.findViewById(R.id.listen_attr_btn);
-        attr_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), PlayerActivity.class);
-                startActivity(i);
-            }
-        });
+    public void showPopup(View v){
+        PopupMenu popupMenu = new PopupMenu(getContext(), v);
+        popupMenu.setOnMenuItemClickListener(this);
+        switch (returnIntex){
+            case 0:
+                popupMenu.inflate(R.menu.hayaa_menu);
+                popupMenu.show();
+                break;
+            case 1:
+                popupMenu.inflate(R.menu.sedq_menu);
+                popupMenu.show();
+                break;
+            case 2:
+                popupMenu.inflate(R.menu.amana_menu);
+                popupMenu.show();
+                break;
+            case 3:
+                popupMenu.inflate(R.menu.twad3_menu);
+                popupMenu.show();
+                break;
+            case 4:
+                popupMenu.inflate(R.menu.zuhd_menu);
+                popupMenu.show();
+                break;
+            case 5:
+                popupMenu.inflate(R.menu.waraa_menu);
+                popupMenu.show();
+                break;
+        }
+
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        return false;
     }
 
     public void attrRetrofit(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://simpleapp-nodejs.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
         AttrInterface attrInterface = retrofit.create(AttrInterface.class);
-        Call<List<AttributeModel>> call = attrInterface.getAttributes();
+        Observable<List<AttributeModel>> observable = attrInterface.getAttributes()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
 
-        call.enqueue(new Callback<List<AttributeModel>>() {
+        Observer<List<AttributeModel>> observer = new Observer<List<AttributeModel>>() {
             @Override
-            public void onResponse(Call<List<AttributeModel>> call, Response<List<AttributeModel>> response) {
-                List<AttributeModel> list = response.body();
+            public void onSubscribe(@NonNull Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(@NonNull List<AttributeModel> attributeModels) {
+
+                List<AttributeModel> list = attributeModels;
                 // webView.setText(myheroList.get(returnIndex).getPersonName());
                 webView.getSettings().setJavaScriptEnabled(true);
                 webView.getSettings().setSaveFormData(true);
                 webView.setWebViewClient(new WebViewClient());
                 webView.loadUrl(list.get(returnIntex).getSefatDetails());
-
             }
 
             @Override
-            public void onFailure(Call<List<AttributeModel>> call, Throwable t) {
+            public void onError(@NonNull Throwable e) {
 
-                Log.d(TAG, "onError", t);
+                Log.d(TAG, "onError", e);
                 Toast.makeText(getContext(), "an Error has eccured", Toast.LENGTH_SHORT).show();
             }
-        });
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+
+        observable.subscribe(observer);
+
+//
+//        call.enqueue(new Callback<List<AttributeModel>>() {
+//            @Override
+//            public void onResponse(Call<List<AttributeModel>> call, Response<List<AttributeModel>> response) {
+//                List<AttributeModel> list = response.body();
+//                // webView.setText(myheroList.get(returnIndex).getPersonName());
+//                webView.getSettings().setJavaScriptEnabled(true);
+//                webView.getSettings().setSaveFormData(true);
+//                webView.setWebViewClient(new WebViewClient());
+//                webView.loadUrl(list.get(returnIntex).getSefatDetails());
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<AttributeModel>> call, Throwable t) {
+//
+//                Log.d(TAG, "onError", t);
+//                Toast.makeText(getContext(), "an Error has eccured", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
     }
 }
