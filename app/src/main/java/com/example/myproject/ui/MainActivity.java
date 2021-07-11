@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import com.example.myproject.NetWork.AddLifeCycle;
 import com.example.myproject.R;
 import com.example.myproject.attribute.AttributeFragment;
 import com.example.myproject.audio.AudioFragment;
@@ -18,12 +19,13 @@ import com.example.myproject.databinding.ActivityMainBinding;
 import com.example.myproject.home.HomeFragment;
 import com.example.myproject.library.LibraryFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 public class MainActivity extends AppCompatActivity  {
 
     ActivityMainBinding binding;
     // returnpos
-   // int i;
+    // int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

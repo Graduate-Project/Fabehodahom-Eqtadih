@@ -67,6 +67,7 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
 
     implementation'com.github.sharish:ShimmerRecyclerView:v1.3'
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 
     //rx java
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
