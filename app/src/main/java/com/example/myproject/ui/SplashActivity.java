@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
             {
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
-                finish();// عشان تختفي الصفحة
+                finish();
             }
         }, Splash_Time_Out);
 

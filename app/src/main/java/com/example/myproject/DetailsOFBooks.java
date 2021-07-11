@@ -79,7 +79,7 @@ public class DetailsOFBooks extends Fragment {
         auther_book.setText(libraryModel.getAuthor());
         book_nam.setText(libraryModel.getBookName());
         book_descrition.setText(libraryModel.getBookDiscription());
-        ArrayList<LibraryModel> finalA = a;
+
         go_to_link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -2,81 +2,36 @@ package com.example.myproject.data;
 
 public class AudioModel {
 
-    private int videoId;
-    private int personId;
-    private String videoName;
-    private String videoDescription;
-    private String instructorName;
-    private int Category;
-    private String seriesName;
     private String videoLink;
+    private String seriesName;
+    private String Category;
+    private String instructorName;
+    private String videoName;
+    private int personId;
+    private int videoId;
 
-    private AudioModel audio;
-
-    public AudioModel( String videoDescription, String instructorName, String seriesName) {
-        this.videoDescription = videoDescription;
-        this.instructorName = instructorName;
-        this.seriesName = seriesName;
+    public AudioModel() {
     }
 
-    public AudioModel( String videoDescription, String instructorName, String seriesName, String videoLink) {
-        this.videoDescription = videoDescription;
-        this.instructorName = instructorName;
-        this.seriesName = seriesName;
+    public AudioModel(String videoLink, String seriesName, String instructorName, String videoName) {
         this.videoLink = videoLink;
-    }
-
-
-    public AudioModel(AudioModel audio) {
-        this.audio = audio;
-    }
-
-    public int getVideoId() {
-        return videoId;
-    }
-
-    public void setVideoId(int videoId) {
-        this.videoId = videoId;
-    }
-
-    public int getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(int personId) {
-        this.personId = personId;
-    }
-
-    public String getVideoName() {
-        return videoName;
-    }
-
-    public void setVideoName(String videoName) {
+        this.seriesName = seriesName;
+        this.instructorName = instructorName;
         this.videoName = videoName;
     }
 
-    public String getVideoDescription() {
-        return videoDescription;
-    }
-
-    public void setVideoDescription(String videoDescription) {
-        this.videoDescription = videoDescription;
-    }
-
-    public String getInstructorName() {
-        return instructorName;
-    }
-
-    public void setInstructorName(String instructorName) {
+    public AudioModel(String videoLink, String instructorName, String videoName) {
+        this.videoLink = videoLink;
         this.instructorName = instructorName;
+        this.videoName = videoName;
     }
 
-    public int getCategory() {
-        return Category;
+    public String getVideoLink() {
+        return videoLink;
     }
 
-    public void setCategory(int category) {
-        Category = category;
+    public void setVideoLink(String videoLink) {
+        this.videoLink = videoLink;
     }
 
     public String getSeriesName() {
@@ -87,11 +42,44 @@ public class AudioModel {
         this.seriesName = seriesName;
     }
 
-    public String getVideoLink() {
-        return videoLink;
+    public String getCategory() {
+        return Category;
     }
 
-    public void setVideoLink(String videoLink) {
-        this.videoLink = videoLink;
+    public void setCategory(String category) {
+        Category = category;
+    }
+
+    public String getInstructorName() {
+        return instructorName;
+    }
+
+    public void setInstructorName(String instructorName) {
+        this.instructorName = instructorName;
+    }
+
+    public String getVideoName() {
+        return videoName;
+    }
+
+    public void setVideoName(String videoName) {
+        this.videoName = videoName;
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
+    }
+
+    public int getVideoId() {
+        return videoId;
+    }
+
+    public void setVideoId(int videoId) {
+        this.videoId = videoId;
     }
 }
+
