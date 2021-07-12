@@ -12,14 +12,5 @@
         tools:context=".home.HomeFragment"
         android:background="@drawable/back">
 
-        <TextView
-            android:id="@+id/h"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="HOME FRAGMENT"
-            android:textColor="@color/white"
-            android:layout_centerInParent="true" />
-
     </RelativeLayout>
 </layout>

@@ -6,12 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".library.BookDetailActvity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
-        android:name="com.example.myproject.DetailsOFBooks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="٢٦٠dp"
-        tools:layout_editor_absoluteY="٤١٠dp"
+    <fragment
+        android:id="@+id/lib_fragment"
+        android:name="com.example.myproject.library.DetailsOFBooks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         tools:layout="@layout/fragment_details_o_f_books" />
+
 </FrameLayout>

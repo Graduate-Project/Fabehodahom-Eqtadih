@@ -84,14 +84,16 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_margin="6dp"
-                    android:src="@drawable/ic_fast_rewind" />
+                    android:src="@drawable/ic_fast_rewind"
+                    android:layout_gravity="left"/>
 
                 <ImageView
                     android:id="@+id/audio_player_play"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_margin="6dp"
-                    android:src="@drawable/ic_play" />
+                    android:src="@drawable/ic_play"
+                    android:layout_gravity="center"/>
 
                 <ImageView
                     android:id="@+id/audio_player_pause"
@@ -99,7 +101,8 @@
                     android:layout_height="50dp"
                     android:layout_margin="6dp"
                     android:src="@drawable/ic_pause"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    android:layout_gravity="right"/>
 
                 <ImageView
                     android:id="@+id/audio_player_ff"

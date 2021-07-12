@@ -18,6 +18,4 @@ public class ContentOfEachChar extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment, new framgentfoeachchar(), "index1").commit();
 
-
-
     }}

@@ -44,9 +44,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="book_ss_url">https://www.noor-book.com/%D9%83%D8%AA%D8%A7%D8%A8-%D8%B5%D9%81%D9%87-%D8%A7%D9%84%D8%B5%D9%81%D9%88%D9%87-%D8%A7%D8%A8%D9%86-%D8%A7%D9%84%D8%AC%D9%88%D8%B2%D9%8A-pdf</string>
     <string name="for_dawnload">للتحميل اضغط هنا</string>
-    <string name="charattribute">صفات الشخصية</string>
+    <string name="charattribute">الصفات</string>
     <string name="charaudio">إستمع</string>
-    <string name="AttrChar">شخصيات الصفة</string>
+    <string name="AttrChar">الشخصيات</string>
     <string name="back_to_home">الرجوع الي الموقع</string>
     <string name="ss_author">ابن الجوزى</string>
     <string name="charlib">المكتبة المرئية للصحابة</string>
@@ -66,5 +66,7 @@
     <string name="char_sbair">الزبير بن العوام</string>
     <string name="char_abdrahman">عبدالرحمن بن عوف</string>
     <string name="sedk">صفة الصدق</string>
-    <string name="place_extract">استخراج الأماكن</string>
+    <string name="place_extract">الأماكن</string>
+    <string name="attribute_library">مكتبة الصفات</string>
+    <string name="char_library">مكتبة الصحابة</string>
 </resources>

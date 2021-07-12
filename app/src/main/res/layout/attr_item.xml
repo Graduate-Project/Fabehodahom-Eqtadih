@@ -18,7 +18,7 @@
             android:textColor="@color/brown"
             android:gravity="center"
             android:text="@string/char_abdrahman"
-            android:layout_gravity="end"
+            android:layout_gravity="right"
             android:padding="16dp"
             android:textSize="20sp"/>
 
