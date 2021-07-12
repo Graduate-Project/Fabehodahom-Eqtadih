@@ -37,7 +37,7 @@ public class VideoPlayerFrag extends Fragment {
 
 
         // initialize media player
-        mediaPlayer = MediaPlayer.create(getContext(), R.raw.sediq);
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.abobaker);
 
         // initialize runnable
         runnable = new Runnable() {

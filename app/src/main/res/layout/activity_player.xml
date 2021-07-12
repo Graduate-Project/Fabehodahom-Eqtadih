@@ -7,11 +7,11 @@
     tools:context=".video.PlayerActivity">
 
 
-    <androidx.fragment.app.FragmentContainerView
+    <fragment
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.myproject.audio.AudioPlayerFrag"
+        android:name="com.example.myproject.video.VideoPlayerFrag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout="@layout/frag_audio_player"
-        />
+        tools:layout="@layout/frag_audio_player" />
+
 </FrameLayout>

@@ -1,13 +1,12 @@
-package com.example.myproject;
+package com.example.myproject.library;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-import com.example.myproject.library.LibraryFragment;
+import com.example.myproject.R;
 
 public class BookDetailActvity extends AppCompatActivity {
 

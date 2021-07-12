@@ -11,10 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myproject.BookDetailActvity;
+import com.example.myproject.library.BookDetailActvity;
 import com.example.myproject.R;
 import com.example.myproject.data.LibraryModel;
-import com.example.myproject.ui.MainActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

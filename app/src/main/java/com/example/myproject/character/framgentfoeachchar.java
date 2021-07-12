@@ -2,6 +2,7 @@ package com.example.myproject.character;
 
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,11 +17,10 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.myproject.NetWork.CharAttrInterface;
 import com.example.myproject.NetWork.CharInterface;
 import com.example.myproject.R;
-import com.example.myproject.data.CharAttrModel;
 import com.example.myproject.data.CompaionsStory;
+import com.example.myproject.video.PlayerActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,17 +39,8 @@ public class framgentfoeachchar extends Fragment {
 
     View v;
     int returnIndex;
-    Button btn;
+    Button listen_btn, attr_btn, place_btn;
     WebView webView;
-
-
-    List<CharAttrModel> data;
-    ListView listView;
-    List<String> list = new ArrayList<>();
-
-    AlertDialog.Builder builder;
-    AlertDialog alertDialog;
-    Dialog dialog;
 
     private static final String TAG = "framgentfoeachchar";
 
@@ -65,17 +56,14 @@ public class framgentfoeachchar extends Fragment {
         webView = v.findViewById(R.id.web);
         //  Toast.makeText(getContext(), "index"+c, Toast.LENGTH_SHORT).show();
 
-        listView = v.findViewById(R.id.dialog_list);
-
         retrofit();
 
-        builder = new AlertDialog.Builder(getContext());
-        builder.setView(inflater.inflate(R.layout.attribute_dialog, container, false));
-        alertDialog = new AlertDialog.Builder(getActivity(), R.layout.attribute_dialog);
-
-        //  dialog = new Dialog(getActivity());
-
         CharAttr();
+
+        listen();
+
+        placeExtract();
+
         return v;
 
 
@@ -128,73 +116,54 @@ public class framgentfoeachchar extends Fragment {
 
     }
 
-    public void AttrRetrofit() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://gradproj.herokuapp.com//")
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build();
 
-        CharAttrInterface attrInterface = retrofit.create(CharAttrInterface.class);
-
-        Observable<List<CharAttrModel>> observable = attrInterface.getAttr()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-
-        Observer<List<CharAttrModel>> observer = new Observer<List<CharAttrModel>>() {
-            @Override
-            public void onSubscribe(@NonNull Disposable d) {
-
-            }
-
-            @Override
-            public void onNext(@NonNull List<CharAttrModel> charAttrModels) {
-
-                data = charAttrModels;
-
-                for (int i = 0; i < data.get(returnIndex).getSefat().size(); i++) {
-                    List<String> l = data.get(i).getSefat();
-                    for (int j = 0; j <= i; j++) {
-                        list.add(l.get(j));
-                        ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, list);
-                        listView.setAdapter(adapter);
-                    }
+    void CharAttr() {
+        attr_btn = v.findViewById(R.id.char_attr);
+        for (int i = 0; i <= returnIndex; i++){
+            final int t = i;
+            attr_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent j = new Intent(getActivity(), CharAttr.class);
+                    j.putExtra("index1", t);
+                    startActivity(j);
                 }
-            }
+            });
+        }
 
-            @Override
-            public void onError(@NonNull Throwable e) {
-
-                Log.d(TAG, "onError", e);
-                Toast.makeText(getContext(), "check internet", Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        };
-
-        observable.subscribe(observer);
     }
 
     //this method for text to speech activity
-    void CharAttr() {
-        btn = v.findViewById(R.id.char_attr);
-        btn.setOnClickListener(new View.OnClickListener() {
+    void listen(){
+        listen_btn = v.findViewById(R.id.attribbtn);
+        listen_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showAlert();
-                AttrRetrofit();
+                Intent i = new Intent(getActivity(), PlayerActivity.class);
+                startActivity(i);
             }
         });
     }
 
-    public void showAlert() {
-        if (alertDialog != null && !alertDialog.isShowing()) {
-            alertDialog.setMessage(data.get(returnIndex).getSefat().toString());
-            alertDialog.show();
-        }
+    void placeExtract(){
+        place_btn = v.findViewById(R.id.place_extract);
+        place_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (int i = 0; i <= returnIndex; i ++){
+                    final int o = i;
+                    place_btn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent t = new Intent(getActivity(), PlacesExetract.class);
+                            t.putExtra("index2", o);
+                            startActivity(t);
+                        }
+                    });
+                }
+            }
+        });
     }
+
 
 }

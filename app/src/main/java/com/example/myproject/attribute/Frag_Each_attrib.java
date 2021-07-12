@@ -18,8 +18,8 @@ import android.widget.Toast;
 
 import com.example.myproject.NetWork.AttrInterface;
 import com.example.myproject.R;
-import com.example.myproject.audio.PlayerActivity;
 import com.example.myproject.data.AttributeModel;
+import com.example.myproject.video.PlayerAttrActivity;
 import com.github.barteksc.pdfviewer.PDFView;
 
 import java.util.List;
@@ -37,12 +37,12 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Frag_Each_attrib extends Fragment implements PopupMenu.OnMenuItemClickListener {
+public class Frag_Each_attrib extends Fragment {
 
 
     View v ;
     int returnIntex;
-    Button attr_btn;
+    Button attr_btn, listen_btn;
     WebView webView;
 
     private static final String TAG = "Frag_Each_attrib";
@@ -64,46 +64,13 @@ public class Frag_Each_attrib extends Fragment implements PopupMenu.OnMenuItemCl
 
         attrRetrofit();
 
-       // showPopup(v);
+        charAttr();
+
+        listen();
+
         return v;
     }
 
-    public void showPopup(View v){
-        PopupMenu popupMenu = new PopupMenu(getContext(), v);
-        popupMenu.setOnMenuItemClickListener(this);
-        switch (returnIntex){
-            case 0:
-                popupMenu.inflate(R.menu.hayaa_menu);
-                popupMenu.show();
-                break;
-            case 1:
-                popupMenu.inflate(R.menu.sedq_menu);
-                popupMenu.show();
-                break;
-            case 2:
-                popupMenu.inflate(R.menu.amana_menu);
-                popupMenu.show();
-                break;
-            case 3:
-                popupMenu.inflate(R.menu.twad3_menu);
-                popupMenu.show();
-                break;
-            case 4:
-                popupMenu.inflate(R.menu.zuhd_menu);
-                popupMenu.show();
-                break;
-            case 5:
-                popupMenu.inflate(R.menu.waraa_menu);
-                popupMenu.show();
-                break;
-        }
-
-    }
-
-    @Override
-    public boolean onMenuItemClick(MenuItem item) {
-        return false;
-    }
 
     public void attrRetrofit(){
         Retrofit retrofit = new Retrofit.Builder()
@@ -170,5 +137,31 @@ public class Frag_Each_attrib extends Fragment implements PopupMenu.OnMenuItemCl
 //            }
 //        });
 //
+    }
+
+    public void charAttr(){
+        attr_btn = v.findViewById(R.id.attr_btn);
+        for (int i = 0; i <= returnIntex; i ++){
+            final int c = i;
+            attr_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent b = new Intent(getActivity(), AttributeChar.class);
+                    b.putExtra("index", c);
+                    startActivity(b);
+                }
+            });
+        }
+    }
+
+    public void listen(){
+        listen_btn = v.findViewById(R.id.listen_attr_btn);
+        listen_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), PlayerAttrActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

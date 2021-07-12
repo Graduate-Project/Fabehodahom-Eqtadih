@@ -18,13 +18,28 @@
         android:layout_marginBottom="8dp">
 
         <Button
-            android:id="@+id/char_attr"
-            android:layout_width="150dp"
+            android:id="@+id/place_extract"
+            android:layout_width="135dp"
             android:layout_height="50dp"
             android:background="@drawable/left_radiud"
+            android:text="@string/place_extract"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="50dp"
+            android:background="@color/gray" />
+
+        <Button
+            android:id="@+id/char_attr"
+            android:layout_width="135dp"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary"
             android:text="@string/charattribute"
             android:textColor="#ffffff"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <View
@@ -34,12 +49,12 @@
 
         <Button
             android:id="@+id/attribbtn"
-            android:layout_width="150dp"
+            android:layout_width="85dp"
             android:layout_height="50dp"
             android:background="@drawable/right_radius"
             android:text="@string/charaudio"
             android:textColor="#ffffff"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
     </LinearLayout>

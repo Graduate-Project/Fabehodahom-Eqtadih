@@ -29,41 +29,16 @@
                     android:layout_width="200dp"
                     android:layout_height="200dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/logo" />
+                    android:src="@drawable/abobakr" />
 
             </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/audio_player_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/card"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp"
-                android:text="أبو بكر الصديق"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="36sp" />
-<!--
-            <TextView
-                android:id="@+id/audio_player_char"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/audio_player_name"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp"
-                android:text="اسم الشيخ"
-                android:textColor="@color/white"
-                android:textSize="26sp" />
-
-                -->
 
             <LinearLayout
                 android:id="@+id/p"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/audio_player_name"
-                android:layout_marginTop="50dp"
+                android:layout_below="@+id/card"
+                android:layout_marginTop="150dp"
                 android:orientation="horizontal"
                 android:padding="12dp">
 

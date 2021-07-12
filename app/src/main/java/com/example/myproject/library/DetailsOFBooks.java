@@ -1,4 +1,4 @@
-package com.example.myproject;
+package com.example.myproject.library;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -19,6 +19,7 @@ import com.bumptech.glide.module.LibraryGlideModule;
 import com.example.myproject.Adapter.RecyclerLibAdapter;
 import com.example.myproject.NetWork.LibInterface;
 import com.example.myproject.NetWork.RetrofitClient;
+import com.example.myproject.R;
 import com.example.myproject.data.CompaionsStory;
 import com.example.myproject.data.LibraryModel;
 import com.example.myproject.library.LibraryFragment;
@@ -68,7 +69,6 @@ public class DetailsOFBooks extends Fragment {
     public  void showdetails(){
         ArrayList<LibraryModel> a=new ArrayList<>();
         a=  LibraryFragment.data;
-
         for (int i = 0; i < a.size(); i++) {
             if (a.get(i).getBookId()==returnposition){
                 libraryModel=a.get(i);
