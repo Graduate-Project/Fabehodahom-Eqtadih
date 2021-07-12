@@ -44,7 +44,7 @@
                 android:layout_width="50dp"
                 android:layout_centerInParent="true"
                 android:layout_below="@id/rvLibrary"
-                android:backgroundTint="@color/brown"
+                android:progressTint="@color/white"
                 android:layout_height="50dp"
                 android:background="@drawable/textstyle"/>
             <View
