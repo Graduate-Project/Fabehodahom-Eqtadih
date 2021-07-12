@@ -1,0 +1,1092 @@
+Index: app/src/main/java/com/example/myproject/character/Dialog.java
+===================================================================
+--- app/src/main/java/com/example/myproject/character/Dialog.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/java/com/example/myproject/character/Dialog.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
+@@ -1,34 +0,0 @@
+-package com.example.myproject.character;
+-
+-import android.app.Activity;
+-import android.app.AlertDialog;
+-import android.view.LayoutInflater;
+-
+-import androidx.fragment.app.DialogFragment;
+-
+-import com.example.myproject.R;
+-
+-import java.util.ArrayList;
+-
+-public class Dialog extends DialogFragment {
+-
+-    Activity activity;
+-    private AlertDialog dialog;
+-
+-    public ArrayList<String> arrayList = new ArrayList<>();
+-    public int i;
+-
+-
+-    public Dialog(Activity activity) {
+-        this.activity = activity;
+-    }
+-
+-    void startAlertDialog() {
+-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+-
+-        LayoutInflater inflater = activity.getLayoutInflater();
+-        builder.setView(inflater.inflate(R.layout.attribute_dialog, null));
+-        builder.setCancelable(true);
+-        dialog = builder.create();
+-    }
+-}
+Index: app/src/main/res/layout/attribute_dialog.xml
+===================================================================
+--- app/src/main/res/layout/attribute_dialog.xml	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/res/layout/attribute_dialog.xml	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
+@@ -1,11 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent">
+-
+-    <ListView
+-        android:id="@+id/dialog_list"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"/>
+-
+-</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/myproject/NetWork/AddLifeCycle.java
+===================================================================
+--- app/src/main/java/com/example/myproject/NetWork/AddLifeCycle.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/java/com/example/myproject/NetWork/AddLifeCycle.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
+@@ -1,9 +0,0 @@
+-package com.example.myproject.NetWork;
+-
+-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+-
+-public interface AddLifeCycle {
+-
+-        void addLifeCycle(YouTubePlayerView YouTubePlayerView);
+-
+-}
+Index: app/src/main/java/com/example/myproject/data/CharAttrModel.java
+===================================================================
+--- app/src/main/java/com/example/myproject/data/CharAttrModel.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/java/com/example/myproject/data/CharAttrModel.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
+@@ -1,25 +0,0 @@
+-package com.example.myproject.data;
+-
+-import java.util.List;
+-
+-public class CharAttrModel {
+-
+-    private String name;
+-    private List<String> sefat;
+-
+-    public String getName() {
+-        return name;
+-    }
+-
+-    public void setName(String name) {
+-        this.name = name;
+-    }
+-
+-    public List<String> getSefat() {
+-        return sefat;
+-    }
+-
+-    public void setSefat(List<String> sefat) {
+-        this.sefat = sefat;
+-    }
+-}
+Index: app/src/main/java/com/example/myproject/NetWork/CharAttrInterface.java
+===================================================================
+--- app/src/main/java/com/example/myproject/NetWork/CharAttrInterface.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/java/com/example/myproject/NetWork/CharAttrInterface.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
+@@ -1,14 +0,0 @@
+-package com.example.myproject.NetWork;
+-
+-import com.example.myproject.data.CharAttrModel;
+-
+-import java.util.List;
+-
+-import io.reactivex.Observable;
+-import retrofit2.http.GET;
+-
+-public interface CharAttrInterface {
+-
+-    @GET("extractAllSefat")
+-    public Observable<List<CharAttrModel>> getAttr();
+-}
+Index: app/src/main/java/com/example/myproject/audio/AudioFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.myproject.audio;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.content.Intent;\r\nimport android.net.Uri;\r\nimport android.os.Bundle;\r\nimport android.util.DisplayMetrics;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.webkit.WebChromeClient;\r\nimport android.webkit.WebSettings;\r\nimport android.webkit.WebView;\r\nimport android.widget.Button;\r\nimport android.widget.CompoundButton;\r\nimport android.widget.FrameLayout;\r\nimport android.widget.MediaController;\r\nimport android.widget.Switch;\r\nimport android.widget.Toast;\r\nimport android.widget.VideoView;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.fragment.app.Fragment;\r\nimport androidx.lifecycle.LifecycleObserver;\r\nimport androidx.recyclerview.widget.LinearLayoutManager;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport com.example.myproject.Adapter.RecyclerAudioAdapter;\r\nimport com.example.myproject.NetWork.AudioInterface;\r\nimport com.example.myproject.NetWork.RetrofitClient;\r\nimport com.example.myproject.R;\r\nimport com.example.myproject.data.AudioModel;\r\nimport com.example.myproject.data.LibraryModel;\r\n\r\nimport com.example.myproject.library.LibraryFragment;\r\nimport com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;\r\nimport com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;\r\nimport com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;\r\n\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.regex.Matcher;\r\nimport java.util.regex.Pattern;\r\n\r\nimport retrofit2.Call;\r\nimport retrofit2.Callback;\r\nimport retrofit2.Response;\r\n\r\n\r\npublic class AudioFragment extends Fragment  {\r\n\r\n\r\n    View view;\r\n\r\n    RecyclerAudioAdapter adapter;\r\n    ArrayList<AudioModel> list=new ArrayList<>();\r\n\r\n    RecyclerView recyclerView;\r\n WebView  youTubePlayerView;\r\n    public AudioFragment() {\r\n        // Required empty public constructor\r\n    }\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\r\n                             Bundle savedInstanceState) {\r\n        view = inflater.inflate(R.layout.fragment_audio, container, false);\r\n         youTubePlayerView = view.findViewById(R.id.youtube_player_view);\r\n         recyclerView=view.findViewById(R.id.recycler_view_audio_id);\r\n         LinearLayoutManager manager=new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);\r\n         recyclerView.setLayoutManager(manager);\r\n         recyclerView.setHasFixedSize(true );\r\n          retrofit();\r\n          return  view;\r\n        }\r\n//\r\n    ArrayList<AudioModel>  audioModels=new ArrayList<>();\r\n    public void retrofit() {\r\n\r\n        AudioInterface interfacr = (AudioInterface) RetrofitClient.getClient().create(AudioInterface.class);\r\n        Call<List<AudioModel>> call = interfacr.getVideos();\r\n\r\n        call.enqueue(new Callback<List<AudioModel>>() {\r\n            @Override\r\n            public void onResponse(Call<List<AudioModel>> call, Response<List<AudioModel>> response) {\r\n                list = (ArrayList<AudioModel>) response.body();\r\n\r\n                 for (int i = 0; i <list.size()-1 ; i++) {\r\n                     audioModels.add(list.get(i));\r\n                }\r\n                adapter=new RecyclerAudioAdapter(getContext(),audioModels);\r\n                recyclerView.setAdapter(adapter);\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onFailure(Call<List<AudioModel>> call, Throwable t) {\r\n\r\n                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();\r\n\r\n            }\r\n        });\r\n    }\r\n}\r\n\r\n\r\n\r\n
+===================================================================
+--- app/src/main/java/com/example/myproject/audio/AudioFragment.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/java/com/example/myproject/video/VideoFragment.java	(date 1626085351434)
+@@ -1,27 +1,14 @@
+-package com.example.myproject.audio;
++package com.example.myproject.video;
+ 
+-import android.annotation.SuppressLint;
+-import android.content.Intent;
+-import android.net.Uri;
+ import android.os.Bundle;
+-import android.util.DisplayMetrics;
++import android.util.Log;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+-import android.webkit.WebChromeClient;
+-import android.webkit.WebSettings;
+ import android.webkit.WebView;
+-import android.widget.Button;
+-import android.widget.CompoundButton;
+-import android.widget.FrameLayout;
+-import android.widget.MediaController;
+-import android.widget.Switch;
+ import android.widget.Toast;
+-import android.widget.VideoView;
+ 
+-import androidx.annotation.NonNull;
+ import androidx.fragment.app.Fragment;
+-import androidx.lifecycle.LifecycleObserver;
+ import androidx.recyclerview.widget.LinearLayoutManager;
+ import androidx.recyclerview.widget.RecyclerView;
+ 
+@@ -29,10 +16,7 @@
+ import com.example.myproject.NetWork.AudioInterface;
+ import com.example.myproject.NetWork.RetrofitClient;
+ import com.example.myproject.R;
+-import com.example.myproject.data.AudioModel;
+-import com.example.myproject.data.LibraryModel;
+-
+-import com.example.myproject.library.LibraryFragment;
++import com.example.myproject.data.VideoModel;
+ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+@@ -40,25 +24,24 @@
+ 
+ import java.util.ArrayList;
+ import java.util.List;
+-import java.util.regex.Matcher;
+-import java.util.regex.Pattern;
+ 
+ import retrofit2.Call;
+ import retrofit2.Callback;
+ import retrofit2.Response;
+ 
++import static com.example.myproject.Adapter.RecyclerAudioAdapter.audios;
+ 
+-public class AudioFragment extends Fragment  {
++
++public class VideoFragment extends Fragment  {
+ 
+ 
+     View view;
+ 
+     RecyclerAudioAdapter adapter;
+-    ArrayList<AudioModel> list=new ArrayList<>();
+ 
+     RecyclerView recyclerView;
+- WebView  youTubePlayerView;
+-    public AudioFragment() {
++
++    public VideoFragment() {
+         // Required empty public constructor
+     }
+ 
+@@ -66,7 +49,6 @@
+     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                              Bundle savedInstanceState) {
+         view = inflater.inflate(R.layout.fragment_audio, container, false);
+-         youTubePlayerView = view.findViewById(R.id.youtube_player_view);
+          recyclerView=view.findViewById(R.id.recycler_view_audio_id);
+          LinearLayoutManager manager=new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+          recyclerView.setLayoutManager(manager);
+@@ -75,27 +57,24 @@
+           return  view;
+         }
+ //
+-    ArrayList<AudioModel>  audioModels=new ArrayList<>();
++
++    ArrayList<VideoModel> responsearray=new ArrayList<>();
+     public void retrofit() {
+ 
+         AudioInterface interfacr = (AudioInterface) RetrofitClient.getClient().create(AudioInterface.class);
+-        Call<List<AudioModel>> call = interfacr.getVideos();
++        Call<List<VideoModel>> call = interfacr.getVideos();
+ 
+-        call.enqueue(new Callback<List<AudioModel>>() {
++        call.enqueue(new Callback<List<VideoModel>>() {
+             @Override
+-            public void onResponse(Call<List<AudioModel>> call, Response<List<AudioModel>> response) {
+-                list = (ArrayList<AudioModel>) response.body();
++            public void onResponse(Call<List<VideoModel>> call, Response<List<VideoModel>> response) {
++                responsearray=(ArrayList<VideoModel>)response.body();
+ 
+-                 for (int i = 0; i <list.size()-1 ; i++) {
+-                     audioModels.add(list.get(i));
+-                }
+-                adapter=new RecyclerAudioAdapter(getContext(),audioModels);
++                  adapter=new RecyclerAudioAdapter(getContext(),responsearray);
+                 recyclerView.setAdapter(adapter);
+-
+             }
+ 
+             @Override
+-            public void onFailure(Call<List<AudioModel>> call, Throwable t) {
++            public void onFailure(Call<List<VideoModel>> call, Throwable t) {
+ 
+                 Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+ 
+Index: app/src/main/res/layout/fragment_details_o_f_books.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".BookDetailActvity\">\r\n\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:orientation=\"vertical\">\r\n\r\n        <View\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"0dp\"\r\n            android:layout_weight=\"1\"\r\n            android:background=\"@drawable/view_lib\" />\r\n\r\n        <View\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"0dp\"\r\n            android:layout_weight=\"2\"\r\n            android:background=\"@color/white\" />\r\n\r\n    </LinearLayout>\r\n\r\n    <androidx.core.widget.NestedScrollView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\">\r\n\r\n        <RelativeLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\">\r\n\r\n            <androidx.cardview.widget.CardView\r\n                android:id=\"@+id/lib_card\"\r\n                android:layout_width=\"250dp\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_centerHorizontal=\"true\"\r\n                android:layout_marginTop=\"50dp\"\r\n                app:cardCornerRadius=\"20dp\">\r\n\r\n                <LinearLayout\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:orientation=\"vertical\">\r\n\r\n                    <ImageView\r\n                        android:id=\"@+id/book_img\"\r\n                        android:layout_width=\"250dp\"\r\n                        android:layout_height=\"200dp\"\r\n                        android:scaleType=\"centerCrop\" />\r\n\r\n                    <TextView\r\n                        android:id=\"@+id/book_author\"\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:layout_gravity=\"end\"\r\n                        android:background=\"@color/colorPrimaryDark\"\r\n                        android:padding=\"6dp\"\r\n                        android:text=\"@string/ss_author\"\r\n                        android:textColor=\"@color/white\"\r\n                        android:textSize=\"16sp\" />\r\n\r\n                </LinearLayout>\r\n            </androidx.cardview.widget.CardView>\r\n\r\n            <TextView\r\n                android:id=\"@+id/book_name\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_below=\"@+id/lib_card\"\r\n                android:layout_centerHorizontal=\"true\"\r\n                android:layout_marginTop=\"8dp\"\r\n                android:text=\"@string/book_ss\"\r\n                android:textColor=\"@color/brown\"\r\n                android:textSize=\"18sp\" />\r\n\r\n            <androidx.cardview.widget.CardView\r\n                android:id=\"@+id/back_card\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_below=\"@+id/book_name\"\r\n                android:layout_marginTop=\"8dp\">\r\n\r\n                <TextView\r\n                    android:id=\"@+id/book_disc\"\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:padding=\"8dp\"\r\n                    android:text=\"@string/book_des_ss\"\r\n                    android:textSize=\"16sp\" />\r\n\r\n            </androidx.cardview.widget.CardView>\r\n\r\n            <View\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"70dp\"\r\n                android:layout_below=\"@+id/back_card\" />\r\n\r\n        </RelativeLayout>\r\n    </androidx.core.widget.NestedScrollView>\r\n\r\n    <androidx.cardview.widget.CardView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginBottom=\"10dp\"\r\n        android:layout_alignParentBottom=\"true\"\r\n        android:layout_centerHorizontal=\"true\"\r\n        app:cardCornerRadius=\"10dp\">\r\n\r\n        <TextView\r\n            android:id=\"@+id/back_lib\"\r\n            android:layout_width=\"150dp\"\r\n            android:layout_height=\"30dp\"\r\n            android:text=\"@string/back_to_home\"\r\n            android:textColor=\"@color/white\"\r\n            android:textSize=\"20sp\"\r\n            android:gravity=\"center\"\r\n            android:background=\"@drawable/round\"/>\r\n\r\n\r\n    </androidx.cardview.widget.CardView>\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_details_o_f_books.xml	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/res/layout/fragment_details_o_f_books.xml	(date 1626085351354)
+@@ -91,6 +91,7 @@
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:padding="8dp"
++                    android:textColor="@color/brown"
+                     android:text="@string/book_des_ss"
+                     android:textSize="16sp" />
+ 
+Index: app/src/main/java/com/example/myproject/audio/AudioPlayerFrag.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.myproject.audio;\r\n\r\nimport android.media.MediaPlayer;\r\nimport android.os.Bundle;\r\nimport android.os.Handler;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.SeekBar;\r\n\r\nimport androidx.databinding.DataBindingUtil;\r\nimport androidx.fragment.app.Fragment;\r\n\r\nimport com.example.myproject.R;\r\nimport com.example.myproject.databinding.FragAudioPlayerBinding;\r\nimport com.example.myproject.databinding.FragmentAudioBinding;\r\n\r\nimport java.util.concurrent.TimeUnit;\r\n\r\npublic class AudioPlayerFrag extends Fragment {\r\n\r\n\r\n    FragAudioPlayerBinding binding;\r\n    MediaPlayer mediaPlayer;\r\n    Handler handler = new Handler();\r\n    Runnable runnable;\r\n\r\n    public AudioPlayerFrag() {\r\n        // Required empty public constructor\r\n    }\r\n\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\r\n                             Bundle savedInstanceState) {\r\n        // Inflate the layout for this fragment\r\n        binding = FragAudioPlayerBinding.inflate(inflater, container, false);\r\n        View view = binding.getRoot();\r\n\r\n        // initialize media player\r\n        mediaPlayer = MediaPlayer.create(getContext(), R.raw.sediq);\r\n\r\n        // initialize runnable\r\n        runnable = new Runnable() {\r\n            @Override\r\n            public void run() {\r\n                // set progress on seek bar\r\n                binding.audioPlayerSeekBar.setProgress(mediaPlayer.getCurrentPosition());\r\n                // handler post delay for 0.5 second\r\n                handler.postDelayed(this, 500);\r\n            }\r\n        };\r\n        // get duration of media player\r\n        int duration = mediaPlayer.getDuration();\r\n        // convert millisecond to minute and second\r\n        String sDuration = convertFormat(duration);\r\n        // set duration on text view\r\n        binding.audioPlayerDuration.setText(sDuration);\r\n        binding.audioPlayerPlay.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                // hide play button\r\n                binding.audioPlayerPlay.setVisibility(View.GONE);\r\n                // show puase button\r\n                binding.audioPlayerPause.setVisibility(View.VISIBLE);\r\n                // start media player\r\n                mediaPlayer.start();\r\n                // set max on seek bar\r\n                binding.audioPlayerSeekBar.setMax(mediaPlayer.getDuration());\r\n                // start handler\r\n                handler.postDelayed(runnable, 0);\r\n            }\r\n        });\r\n\r\n        binding.audioPlayerPause.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                // hide pause button\r\n                binding.audioPlayerPause.setVisibility(View.GONE);\r\n                // show play button\r\n                binding.audioPlayerPlay.setVisibility(View.VISIBLE);\r\n                // pause media player\r\n                mediaPlayer.pause();\r\n                // stop handler\r\n                handler.removeCallbacks(runnable);\r\n            }\r\n        });\r\n        binding.audioPlayerFf.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                // get current position of media player\r\n                int currentPosition = mediaPlayer.getCurrentPosition();\r\n                // get duration of media player\r\n                int duration = mediaPlayer.getDuration();\r\n                // check condition\r\n                if (mediaPlayer.isPlaying() && duration != currentPosition) {\r\n                    // when media is playing and duration is not equal to current position\r\n                    // fast forward for 5 second\r\n                    currentPosition = currentPosition + 5000;\r\n                    // set current position on text view\r\n                    binding.audioPlayerPosition.setText(convertFormat(currentPosition));\r\n                    // set progress on seek bar\r\n                    mediaPlayer.seekTo(currentPosition);\r\n                }\r\n            }\r\n        });\r\n\r\n        binding.audioPlayerRew.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                // get current position of media player\r\n                int currentPosition = mediaPlayer.getCurrentPosition();\r\n                // check condition\r\n                if (mediaPlayer.isPlaying() && currentPosition > 5000) {\r\n                    // when media is playing and current position in greater than 5 seconds\r\n                    // rewind for 5 seconds\r\n                    currentPosition = currentPosition - 5000;\r\n                    // get current position on text view\r\n                    binding.audioPlayerPosition.setText(convertFormat(currentPosition));\r\n                    // set progress on seek bar\r\n                    mediaPlayer.seekTo(currentPosition);\r\n                }\r\n            }\r\n        });\r\n\r\n        binding.audioPlayerSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {\r\n            @Override\r\n            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {\r\n                // check condition\r\n                if (b) {\r\n                    // when drag the seek bar\r\n                    // set progress on seek bar\r\n                    mediaPlayer.seekTo(i);\r\n                }\r\n                // set current position on text view\r\n                binding.audioPlayerPosition.setText(convertFormat(mediaPlayer.getCurrentPosition()));\r\n            }\r\n\r\n            @Override\r\n            public void onStartTrackingTouch(SeekBar seekBar) {\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onStopTrackingTouch(SeekBar seekBar) {\r\n\r\n            }\r\n        });\r\n\r\n        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {\r\n            @Override\r\n            public void onCompletion(MediaPlayer mediaPlayer) {\r\n                // hide pause button\r\n                binding.audioPlayerPause.setVisibility(View.GONE);\r\n                // show play button\r\n                binding.audioPlayerPlay.setVisibility(View.VISIBLE);\r\n                // set media player to initial position\r\n                mediaPlayer.seekTo(0);\r\n            }\r\n        });\r\n\r\n        return view;\r\n    }\r\n\r\n    private String convertFormat(int duration) {\r\n        return String.format(\"%02d:%02d\"\r\n                , TimeUnit.MILLISECONDS.toMinutes(duration)\r\n                , TimeUnit.MILLISECONDS.toSeconds(duration) -\r\n                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(duration)));\r\n    }\r\n}
+===================================================================
+--- app/src/main/java/com/example/myproject/audio/AudioPlayerFrag.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/java/com/example/myproject/video/VideoPlayerFrag.java	(date 1626091274863)
+@@ -1,4 +1,4 @@
+-package com.example.myproject.audio;
++package com.example.myproject.video;
+ 
+ import android.media.MediaPlayer;
+ import android.os.Bundle;
+@@ -8,16 +8,14 @@
+ import android.view.ViewGroup;
+ import android.widget.SeekBar;
+ 
+-import androidx.databinding.DataBindingUtil;
+ import androidx.fragment.app.Fragment;
+ 
+ import com.example.myproject.R;
+ import com.example.myproject.databinding.FragAudioPlayerBinding;
+-import com.example.myproject.databinding.FragmentAudioBinding;
+ 
+ import java.util.concurrent.TimeUnit;
+ 
+-public class AudioPlayerFrag extends Fragment {
++public class VideoPlayerFrag extends Fragment {
+ 
+ 
+     FragAudioPlayerBinding binding;
+@@ -25,7 +23,7 @@
+     Handler handler = new Handler();
+     Runnable runnable;
+ 
+-    public AudioPlayerFrag() {
++    public VideoPlayerFrag() {
+         // Required empty public constructor
+     }
+ 
+@@ -38,7 +36,7 @@
+         View view = binding.getRoot();
+ 
+         // initialize media player
+-        mediaPlayer = MediaPlayer.create(getContext(), R.raw.sediq);
++        mediaPlayer = MediaPlayer.create(getContext(), R.raw.abobaker);
+ 
+         // initialize runnable
+         runnable = new Runnable() {
+@@ -50,6 +48,7 @@
+                 handler.postDelayed(this, 500);
+             }
+         };
++
+         // get duration of media player
+         int duration = mediaPlayer.getDuration();
+         // convert millisecond to minute and second
+Index: app/src/main/java/com/example/myproject/video/PlayerActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/myproject/video/PlayerActivity.java	(date 1626085351439)
++++ app/src/main/java/com/example/myproject/video/PlayerActivity.java	(date 1626085351439)
+@@ -0,0 +1,21 @@
++package com.example.myproject.video;
++
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.fragment.app.FragmentManager;
++import androidx.fragment.app.FragmentTransaction;
++
++import android.os.Bundle;
++
++import com.example.myproject.R;
++
++public class PlayerActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_player);
++        FragmentManager a=getSupportFragmentManager();
++        FragmentTransaction ft=a.beginTransaction();
++        ft.add(new VideoPlayerFrag(),"player").addToBackStack(null).commit();
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/recycler_audio_item.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:layout_gravity=\"center_horizontal\"\r\n    android:layout_margin=\"5dp\"\r\n    >\r\n\r\n\r\n    <androidx.cardview.widget.CardView\r\n        android:id=\"@+id/c\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        app:cardCornerRadius=\"20dp\">\r\n\r\n        <RelativeLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:background=\"@color/white\"\r\n            android:orientation=\"vertical\">\r\n\r\n            <TextView\r\n                android:id=\"@+id/serie_name\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_alignParentEnd=\"true\"\r\n                android:layout_margin=\"6dp\"\r\n                android:padding=\"3dp\"\r\n                android:text=\"سلسة\"\r\n                android:textColor=\"@color/brown\"\r\n                android:textSize=\"18sp\"\r\n                android:textStyle=\"bold\" />\r\n\r\n\r\n            <FrameLayout\r\n                android:id=\"@+id/f\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"200dp\"\r\n                android:layout_below=\"@+id/serie_name\"\r\n\r\n                android:layout_margin=\"4dp\">\r\n\r\n                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView\r\n                    android:id=\"@+id/youtube_player_view\"\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    app:autoPlay=\"false\"\r\n\r\n                     />\r\n            </FrameLayout>\r\n\r\n            <TextView\r\n                android:id=\"@+id/videoName\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_below=\"@+id/f\"\r\n                android:layout_alignParentEnd=\"true\"\r\n                android:layout_margin=\"6dp\"\r\n                android:padding=\"3dp\"\r\n                android:text=\"اسم الفيديو\"\r\n                android:textColor=\"@color/brown\"\r\n                android:textSize=\"18sp\"\r\n                android:textStyle=\"bold\" />\r\n\r\n            <TextView\r\n                android:id=\"@+id/instructorName\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_below=\"@+id/videoName\"\r\n                android:layout_alignParentEnd=\"true\"\r\n                android:layout_margin=\"6dp\"\r\n                android:padding=\"3dp\"\r\n                android:text=\"اسم المقدم\"\r\n                android:textColor=\"@color/brown\"\r\n                android:textSize=\"16sp\"\r\n                android:textStyle=\"normal\" />\r\n\r\n\r\n\r\n        </RelativeLayout>\r\n\r\n\r\n    </androidx.cardview.widget.CardView>\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/recycler_audio_item.xml	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/res/layout/recycler_audio_item.xml	(date 1626085351097)
+@@ -58,7 +58,7 @@
+                 android:layout_alignParentEnd="true"
+                 android:layout_margin="6dp"
+                 android:padding="3dp"
+-                android:text="اسم الفيديو"
++
+                 android:textColor="@color/brown"
+                 android:textSize="18sp"
+                 android:textStyle="bold" />
+@@ -71,7 +71,7 @@
+                 android:layout_alignParentEnd="true"
+                 android:layout_margin="6dp"
+                 android:padding="3dp"
+-                android:text="اسم المقدم"
++
+                 android:textColor="@color/brown"
+                 android:textSize="16sp"
+                 android:textStyle="normal" />
+Index: app/src/main/java/com/example/myproject/Adapter/RecyclerAudioAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.myproject.Adapter;\r\n\r\nimport android.content.Context;\r\nimport android.net.Uri;\r\nimport android.text.TextUtils;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.webkit.WebSettings;\r\nimport android.webkit.WebView;\r\nimport android.widget.Button;\r\nimport android.widget.MediaController;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\nimport android.widget.VideoView;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport com.example.myproject.NetWork.AddLifeCycle;\r\nimport com.example.myproject.R;\r\nimport com.example.myproject.audio.AudioFragment;\r\nimport com.example.myproject.data.AudioModel;\r\nimport com.example.myproject.ui.MainActivity;\r\nimport com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;\r\nimport com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;\r\nimport com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;\r\n\r\nimport java.net.HttpURLConnection;\r\nimport java.net.Proxy;\r\nimport java.net.URL;\r\nimport java.util.ArrayList;\r\nimport java.util.regex.Matcher;\r\nimport java.util.regex.Pattern;\r\n\r\npublic class RecyclerAudioAdapter extends RecyclerView.Adapter<RecyclerAudioAdapter.RecyclAudioHolder>  {\r\n\r\n    Context context;\r\n    ArrayList<AudioModel> data;\r\n    public static AudioModel audios;\r\n\r\n\r\n    public RecyclerAudioAdapter(Context context, ArrayList<AudioModel> data) {\r\n        this.context = context;\r\n        this.data = data;\r\n    }\r\n\r\n    public void setData(ArrayList<AudioModel> list) {\r\n        this.data=list;\r\n        notifyDataSetChanged();\r\n    }\r\n\r\n    @NonNull\r\n    @Override\r\n    public  RecyclAudioHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {\r\n        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_audio_item, parent, false);\r\n        RecyclAudioHolder holder = new RecyclAudioHolder(view);\r\n\r\n        return holder;\r\n    }\r\n\r\n    @Override\r\n    public void onBindViewHolder(@NonNull RecyclAudioHolder holder, int position) {\r\n\r\n\r\n        audios = data.get(position);\r\n        holder.serieName.setText(audios.getSeriesName());\r\n        holder.videoName.setText(audios.getVideoName());\r\n        holder.instructorName.setText(audios.getInstructorName());\r\n       //.addLifeCycle(holder.videoView);\r\n        holder.videoView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {\r\n\r\n            @Override\r\n            public void onReady(@NonNull YouTubePlayer youTubePlayer) {\r\n                String url = audios.getVideoLink();\r\n                String[] n=url.split(\"=\");\r\n                youTubePlayer.loadVideo(n[1], 0);\r\n\r\n             \r\n\r\n\r\n            }\r\n        });\r\n    }\r\n\r\n\r\n    @Override\r\n    public int getItemCount() {\r\n        return data.size();\r\n    }\r\n\r\n\r\n     class RecyclAudioHolder extends RecyclerView.ViewHolder {\r\n        TextView serieName;\r\n        YouTubePlayerView videoView;\r\n        TextView videoName;\r\n        TextView instructorName;\r\n\r\n        public RecyclAudioHolder(@NonNull View itemView) {\r\n            super(itemView);\r\n\r\n            serieName = itemView.findViewById(R.id.serie_name);\r\n            instructorName = itemView.findViewById(R.id.instructorName);\r\n            videoName = itemView.findViewById(R.id.videoName);\r\n            videoView = itemView.findViewById(R.id.youtube_player_view);\r\n        }\r\n    }\r\n\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/myproject/Adapter/RecyclerAudioAdapter.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/java/com/example/myproject/Adapter/RecyclerAudioAdapter.java	(date 1626085350993)
+@@ -1,55 +1,37 @@
+ package com.example.myproject.Adapter;
+ 
+ import android.content.Context;
+-import android.net.Uri;
+-import android.text.TextUtils;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+-import android.webkit.WebSettings;
+-import android.webkit.WebView;
+-import android.widget.Button;
+-import android.widget.MediaController;
+ import android.widget.TextView;
+-import android.widget.Toast;
+-import android.widget.VideoView;
+ 
+ import androidx.annotation.NonNull;
+ import androidx.recyclerview.widget.RecyclerView;
+ 
+-import com.example.myproject.NetWork.AddLifeCycle;
+ import com.example.myproject.R;
+-import com.example.myproject.audio.AudioFragment;
+-import com.example.myproject.data.AudioModel;
++import com.example.myproject.data.VideoModel;
+ import com.example.myproject.ui.MainActivity;
+ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+ 
+-import java.net.HttpURLConnection;
+-import java.net.Proxy;
+-import java.net.URL;
+ import java.util.ArrayList;
+-import java.util.regex.Matcher;
+-import java.util.regex.Pattern;
+ 
+ public class RecyclerAudioAdapter extends RecyclerView.Adapter<RecyclerAudioAdapter.RecyclAudioHolder>  {
+ 
+     Context context;
+-    ArrayList<AudioModel> data;
+-    public static AudioModel audios;
++    ArrayList<VideoModel> data;
++    public static VideoModel audios;
+ 
+-
+-    public RecyclerAudioAdapter(Context context, ArrayList<AudioModel> data) {
++    public RecyclerAudioAdapter(Context context, ArrayList<VideoModel> data) {
+         this.context = context;
+         this.data = data;
+     }
+-
+-    public void setData(ArrayList<AudioModel> list) {
++    public void setData(ArrayList<VideoModel> list) {
+         this.data=list;
+         notifyDataSetChanged();
+     }
+-
+     @NonNull
+     @Override
+     public  RecyclAudioHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+@@ -65,9 +47,10 @@
+ 
+         audios = data.get(position);
+         holder.serieName.setText(audios.getSeriesName());
+-        holder.videoName.setText(audios.getVideoName());
+-        holder.instructorName.setText(audios.getInstructorName());
+-       //.addLifeCycle(holder.videoView);
++//        holder.videoName.setText(audios.getVideoName());
++      //  holder.instructorName.setText(audios.getInstructorName());
++
++
+         holder.videoView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+ 
+             @Override
+@@ -76,7 +59,7 @@
+                 String[] n=url.split("=");
+                 youTubePlayer.loadVideo(n[1], 0);
+ 
+-             
++
+ 
+ 
+             }
+@@ -90,18 +73,18 @@
+     }
+ 
+ 
+-     class RecyclAudioHolder extends RecyclerView.ViewHolder {
++    public static class RecyclAudioHolder extends RecyclerView.ViewHolder {
+         TextView serieName;
+-        YouTubePlayerView videoView;
++       static YouTubePlayerView videoView;
+         TextView videoName;
+-        TextView instructorName;
++       // TextView instructorName;
+ 
+         public RecyclAudioHolder(@NonNull View itemView) {
+             super(itemView);
+ 
+             serieName = itemView.findViewById(R.id.serie_name);
+-            instructorName = itemView.findViewById(R.id.instructorName);
+-            videoName = itemView.findViewById(R.id.videoName);
++          //  instructorName = itemView.findViewById(R.id.instructorName);
++         //   videoName = itemView.findViewById(R.id.videoName);
+             videoView = itemView.findViewById(R.id.youtube_player_view);
+         }
+     }
+Index: app/src/main/res/layout/fragment_attr_audio.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_attr_audio.xml	(date 1626087359168)
++++ app/src/main/res/layout/fragment_attr_audio.xml	(date 1626087359168)
+@@ -0,0 +1,114 @@
++<?xml version="1.0" encoding="utf-8"?>
++<layout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    xmlns:app="http://schemas.android.com/apk/res-auto">
++
++    <data>
++
++    </data>
++
++    <RelativeLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:background="@drawable/home"
++        tools:context=".attribute.AttrAudioFragment">
++
++        <androidx.cardview.widget.CardView
++            android:id="@+id/card"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_centerHorizontal="true"
++            android:layout_marginTop="60dp"
++            app:cardCornerRadius="100dp">
++
++            <ImageView
++                android:id="@+id/audio_im_player"
++                android:layout_width="200dp"
++                android:layout_height="200dp"
++                android:scaleType="centerCrop"
++                android:src="@drawable/s_zohd" />
++
++        </androidx.cardview.widget.CardView>
++
++        <LinearLayout
++            android:id="@+id/p"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_below="@+id/card"
++            android:layout_marginTop="150dp"
++            android:orientation="horizontal"
++            android:padding="12dp"
++            tools:context=".video.VideoPlayerFrag">
++
++
++            <TextView
++                android:id="@+id/audio_player_position"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="00:00"
++                android:textColor="@color/white"
++                android:textSize="18sp"
++                android:textStyle="bold" />
++
++            <SeekBar
++                android:id="@+id/audio_player_seekBar"
++                android:layout_width="0dp"
++                android:layout_height="wrap_content"
++                android:layout_weight="1"
++                android:thumbTint="@color/white" />
++
++            <TextView
++                android:id="@+id/audio_player_duration"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="00:00"
++                android:textColor="@color/white"
++                android:textSize="18sp"
++                android:textStyle="bold" />
++
++
++        </LinearLayout>
++
++        <LinearLayout
++            android:id="@+id/l"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_below="@+id/p"
++            android:layout_centerHorizontal="true"
++            android:layout_marginTop="10dp"
++            android:orientation="horizontal">
++
++            <ImageView
++                android:id="@+id/audio_player_rew"
++                android:layout_width="50dp"
++                android:layout_height="50dp"
++                android:layout_margin="6dp"
++                android:src="@drawable/ic_fast_rewind" />
++
++            <ImageView
++                android:id="@+id/audio_player_play"
++                android:layout_width="50dp"
++                android:layout_height="50dp"
++                android:layout_margin="6dp"
++                android:src="@drawable/ic_play" />
++
++            <ImageView
++                android:id="@+id/audio_player_pause"
++                android:layout_width="50dp"
++                android:layout_height="50dp"
++                android:layout_margin="6dp"
++                android:src="@drawable/ic_pause"
++                android:visibility="gone" />
++
++            <ImageView
++                android:id="@+id/audio_player_ff"
++                android:layout_width="50dp"
++                android:layout_height="50dp"
++                android:layout_margin="6dp"
++                android:src="@drawable/ic_fast_forward" />
++
++
++        </LinearLayout>
++
++    </RelativeLayout>
++</layout>
+\ No newline at end of file
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'com.android.application'\r\n}\r\n\r\nandroid {\r\n    compileSdkVersion 30\r\n    buildToolsVersion \"30.0.3\"\r\n    defaultConfig {\r\n        applicationId \"com.example.myproject\"\r\n        minSdkVersion 17\r\n        multiDexEnabled true\r\n        targetSdkVersion 30\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n\r\n    buildFeatures {\r\n        dataBinding true\r\n    }\r\n\r\n\r\n\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation 'androidx.appcompat:appcompat:1.3.0'\r\n    implementation 'com.google.android.material:material:1.4.0'\r\n    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'\r\n    implementation 'androidx.legacy:legacy-support-v4:1.0.0'\r\n    implementation 'androidx.room:room-runtime:2.3.0'\r\n    implementation 'org.jetbrains:annotations:15.0'\r\n    testImplementation 'junit:junit:4.13.2'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.3'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'\r\n\r\n    //retrofit\r\n    implementation 'com.squareup.retrofit2:retrofit:2.9.0'\r\n    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'\r\n    implementation 'me.relex:circleindicator:2.1.4'\r\n     //picasso\r\n    implementation 'com.squareup.picasso:picasso:2.71828'\r\n    implementation 'de.hdodenhof:circleimageview:3.1.0'\r\n\r\n    // for slide\r\n    implementation 'com.github.bumptech.glide:glide:4.11.0'\r\n    annotationProcessor 'androidx.room:room-compiler:2.3.0'\r\n\r\n    // room\r\n    def room_version = \"1.1.1\"\r\n\r\n    implementation \"android.arch.persistence.room:runtime:$room_version\"\r\n    annotationProcessor \"android.arch.persistence.room:compiler:$room_version\"\r\n\r\n    implementation'com.github.sharish:ShimmerRecyclerView:v1.3'\r\n    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'\r\n\r\n    //rx java\r\n    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'\r\n    // Because RxAndroid releases are few and far between, it is recommended you also\r\n    // explicitly depend on RxJava's latest version for bug fixes and new features.\r\n    // (see https://github.com/ReactiveX/RxJava/releases for latest 3.x.x version)\r\n    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'\r\n\r\n    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'\r\n\r\n\r\n    //محاوله\r\n    def rxJavaVersion = '2.1.1'\r\n    implementation \"io.reactivex.rxjava2:rxandroid:$rxJavaVersion\"\r\n\r\n    implementation \"io.reactivex.rxjava2:rxjava:$rxJavaVersion\"\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/build.gradle	(date 1626085350938)
+@@ -63,8 +63,8 @@
+     // room
+     def room_version = "1.1.1"
+ 
+-    implementation "android.arch.persistence.room:runtime:$room_version"
+-    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
++    implementation 'androidx.room:room-runtime:2.0.0'
++    annotationProcessor 'androidx.room:room-compiler:2.0.0'
+ 
+     implementation'com.github.sharish:ShimmerRecyclerView:v1.3'
+     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+Index: app/src/main/java/com/example/myproject/NetWork/AudioInterface.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.myproject.NetWork;\r\n\r\nimport com.example.myproject.data.AudioModel;\r\n\r\nimport java.util.List;\r\n\r\nimport retrofit2.Call;\r\nimport retrofit2.http.GET;\r\n\r\npublic interface AudioInterface {\r\n\r\n    @GET(\"allVideos\")\r\n    public Call<List<AudioModel>> getVideos();\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/myproject/NetWork/AudioInterface.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/java/com/example/myproject/NetWork/AudioInterface.java	(date 1626085350996)
+@@ -1,6 +1,6 @@
+ package com.example.myproject.NetWork;
+ 
+-import com.example.myproject.data.AudioModel;
++import com.example.myproject.data.VideoModel;
+ 
+ import java.util.List;
+ 
+@@ -10,5 +10,5 @@
+ public interface AudioInterface {
+ 
+     @GET("allVideos")
+-    public Call<List<AudioModel>> getVideos();
++    public Call<List<VideoModel>> getVideos();
+ }
+Index: app/src/main/java/com/example/myproject/attribute/AttrAudioFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/myproject/attribute/AttrAudioFragment.java	(date 1626091274847)
++++ app/src/main/java/com/example/myproject/attribute/AttrAudioFragment.java	(date 1626091274847)
+@@ -0,0 +1,175 @@
++package com.example.myproject.attribute;
++
++import android.media.MediaPlayer;
++import android.os.Bundle;
++import android.os.Handler;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.SeekBar;
++
++import androidx.fragment.app.Fragment;
++
++import com.example.myproject.R;
++import com.example.myproject.databinding.FragmentAttrAudioBinding;
++
++import java.util.concurrent.TimeUnit;
++
++public class AttrAudioFragment extends Fragment {
++
++    FragmentAttrAudioBinding binding;
++
++    MediaPlayer mediaPlayer;
++    Handler handler = new Handler();
++    Runnable runnable;
++
++    public AttrAudioFragment() {
++        // Required empty public constructor
++    }
++
++    @Override
++    public View onCreateView(LayoutInflater inflater, ViewGroup container,
++                             Bundle savedInstanceState) {
++        // Inflate the layout for this fragment
++        binding = FragmentAttrAudioBinding.inflate(inflater, container, false);
++        View view = binding.getRoot();
++
++
++        // initialize media player
++        mediaPlayer = MediaPlayer.create(getContext(), R.raw.zuhd);
++
++
++        // initialize runnable
++        runnable = new Runnable() {
++            @Override
++            public void run() {
++                // set progress on seek bar
++                binding.audioPlayerSeekBar.setProgress(mediaPlayer.getCurrentPosition());
++                // handler post delay for 0.5 second
++                handler.postDelayed(this::run, 500);
++            }
++        };
++
++        // get duration of media player
++        int duration = mediaPlayer.getDuration();
++        // convert millisecond to minute and second
++        String sDuration = convertFormat(duration);
++        // set duration on text view
++        binding.audioPlayerDuration.setText(sDuration);
++        binding.audioPlayerPlay.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++                // hide play button
++                binding.audioPlayerPlay.setVisibility(View.GONE);
++                // show puase button
++                binding.audioPlayerPause.setVisibility(View.VISIBLE);
++                // start media player
++                mediaPlayer.start();
++                // set max on seek bar
++                binding.audioPlayerSeekBar.setMax(mediaPlayer.getDuration());
++                // start handler
++                handler.postDelayed(runnable, 0);
++            }
++        });
++
++
++        binding.audioPlayerPause.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++                // hide pause button
++                binding.audioPlayerPause.setVisibility(View.GONE);
++                // show play button
++                binding.audioPlayerPlay.setVisibility(View.VISIBLE);
++                // pause media player
++                mediaPlayer.pause();
++                // stop handler
++                handler.removeCallbacks(runnable);
++            }
++        });
++        binding.audioPlayerFf.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++                // get current position of media player
++                int currentPosition = mediaPlayer.getCurrentPosition();
++                // get duration of media player
++                int duration = mediaPlayer.getDuration();
++                // check condition
++                if (mediaPlayer.isPlaying() && duration != currentPosition) {
++                    // when media is playing and duration is not equal to current position
++                    // fast forward for 5 second
++                    currentPosition = currentPosition + 5000;
++                    // set current position on text view
++                    binding.audioPlayerPosition.setText(convertFormat(currentPosition));
++                    // set progress on seek bar
++                    mediaPlayer.seekTo(currentPosition);
++                }
++            }
++        });
++
++
++        binding.audioPlayerRew.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++                // get current position of media player
++                int currentPosition = mediaPlayer.getCurrentPosition();
++                // check condition
++                if (mediaPlayer.isPlaying() && currentPosition > 5000) {
++                    // when media is playing and current position in greater than 5 seconds
++                    // rewind for 5 seconds
++                    currentPosition = currentPosition - 5000;
++                    // get current position on text view
++                    binding.audioPlayerPosition.setText(convertFormat(currentPosition));
++                    // set progress on seek bar
++                    mediaPlayer.seekTo(currentPosition);
++                }
++            }
++        });
++
++        binding.audioPlayerSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
++            @Override
++            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
++                // check condition
++                if (b) {
++                    // when drag the seek bar
++                    // set progress on seek bar
++                    mediaPlayer.seekTo(i);
++                }
++                // set current position on text view
++                binding.audioPlayerPosition.setText(convertFormat(mediaPlayer.getCurrentPosition()));
++            }
++
++            @Override
++            public void onStartTrackingTouch(SeekBar seekBar) {
++
++            }
++
++            @Override
++            public void onStopTrackingTouch(SeekBar seekBar) {
++
++            }
++        });
++
++
++        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
++            @Override
++            public void onCompletion(MediaPlayer mediaPlayer) {
++                // hide pause button
++                binding.audioPlayerPause.setVisibility(View.GONE);
++                // show play button
++                binding.audioPlayerPlay.setVisibility(View.VISIBLE);
++                // set media player to initial position
++                mediaPlayer.seekTo(0);
++            }
++        });
++
++        return view;
++    }
++
++    private String convertFormat(int duration) {
++        return String.format("%02d:%02d"
++                , TimeUnit.MILLISECONDS.toMinutes(duration)
++                , TimeUnit.MILLISECONDS.toSeconds(duration) -
++                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(duration)));
++    }
++
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/attr_item.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\">\r\n\r\n    <androidx.cardview.widget.CardView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_centerInParent=\"true\"\r\n        android:layout_margin=\"8dp\"\r\n        app:cardCornerRadius=\"30dp\">\r\n\r\n        <TextView\r\n            android:id=\"@+id/attr_char_text\"\r\n            android:layout_width=\"160dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:textColor=\"@color/brown\"\r\n            android:gravity=\"center\"\r\n            android:text=\"@string/char_abdrahman\"\r\n            android:layout_gravity=\"end\"\r\n            android:padding=\"16dp\"\r\n            android:textSize=\"20sp\"/>\r\n\r\n    </androidx.cardview.widget.CardView>\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/attr_item.xml	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/res/layout/attr_item.xml	(date 1626091981029)
+@@ -13,7 +13,7 @@
+ 
+         <TextView
+             android:id="@+id/attr_char_text"
+-            android:layout_width="160dp"
++            android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textColor="@color/brown"
+             android:gravity="center"
+Index: app/src/main/java/com/example/myproject/audio/PlayerActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.myproject.audio;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.os.Bundle;\r\n\r\nimport com.example.myproject.R;\r\n\r\npublic class PlayerActivity extends AppCompatActivity {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_player);\r\n    }\r\n}
+===================================================================
+--- app/src/main/java/com/example/myproject/audio/PlayerActivity.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/java/com/example/myproject/video/PlayerAttrActivity.java	(date 1626091981047)
+@@ -1,16 +1,22 @@
+-package com.example.myproject.audio;
++package com.example.myproject.video;
+ 
+ import androidx.appcompat.app.AppCompatActivity;
++import androidx.fragment.app.FragmentManager;
++import androidx.fragment.app.FragmentTransaction;
+ 
+ import android.os.Bundle;
+ 
+ import com.example.myproject.R;
++import com.example.myproject.attribute.AttrAudioFragment;
+ 
+-public class PlayerActivity extends AppCompatActivity {
++public class PlayerAttrActivity extends AppCompatActivity {
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+-        setContentView(R.layout.activity_player);
++        setContentView(R.layout.activity_player_attr);
++        FragmentManager a=getSupportFragmentManager();
++        FragmentTransaction ft=a.beginTransaction();
++        ft.add(new AttrAudioFragment(), "player").addToBackStack(null).commit();
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_player_attr.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_player_attr.xml	(date 1626091081900)
++++ app/src/main/res/layout/activity_player_attr.xml	(date 1626091081900)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="utf-8"?>
++<FrameLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".video.PlayerAttrActivity">
++
++    <fragment
++        android:id="@+id/fragmentContainerView"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:name="com.example.myproject.attribute.AttrAudioFragment"
++        tools:layout="@layout/fragment_attr_audio"
++        />
++</FrameLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_home.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <data>\r\n\r\n    </data>\r\n\r\n    <RelativeLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        tools:context=\".home.HomeFragment\"\r\n        android:background=\"@drawable/back\">\r\n\r\n        <TextView\r\n            android:id=\"@+id/h\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Home fragment\"\r\n            android:textSize=\"30sp\"\r\n            android:textColor=\"@color/white\"\r\n            android:layout_centerInParent=\"true\" />\r\n\r\n\r\n    </RelativeLayout>\r\n</layout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_home.xml	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/res/layout/fragment_home.xml	(date 1626085351094)
+@@ -16,7 +16,6 @@
+             android:id="@+id/h"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+-            android:text="Home fragment"
+             android:textSize="30sp"
+             android:textColor="@color/white"
+             android:layout_centerInParent="true" />
+Index: app/src/main/res/layout/fragment_audio.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <data>\r\n\r\n    </data>\r\n\r\n                <androidx.recyclerview.widget.RecyclerView\r\n                    android:id=\"@+id/recycler_view_audio_id\"\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    tools:listitem=\"@layout/recycler_audio_item\"\r\n                    android:padding=\"6dp\" />\r\n\r\n\r\n\r\n</layout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_audio.xml	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/res/layout/fragment_audio.xml	(date 1626085351091)
+@@ -1,18 +1,11 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:tools="http://schemas.android.com/tools">
+-
+-    <data>
+-
+-    </data>
+-
+-                <androidx.recyclerview.widget.RecyclerView
+-                    android:id="@+id/recycler_view_audio_id"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="match_parent"
+-                    tools:listitem="@layout/recycler_audio_item"
+-                    android:padding="6dp" />
++<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:id="@+id/recycler_view_audio_id"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:listitem="@layout/recycler_audio_item"
++    android:padding="6dp"/>
+ 
+ 
+ 
+-</layout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/myproject/ui/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.myproject.ui;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.MenuItem;\r\nimport android.view.View;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.databinding.DataBindingUtil;\r\nimport androidx.fragment.app.Fragment;\r\n\r\nimport com.example.myproject.NetWork.AddLifeCycle;\r\nimport com.example.myproject.R;\r\nimport com.example.myproject.attribute.AttributeFragment;\r\nimport com.example.myproject.audio.AudioFragment;\r\nimport com.example.myproject.character.CharacterFragment;\r\n\r\nimport com.example.myproject.databinding.ActivityMainBinding;\r\nimport com.example.myproject.home.HomeFragment;\r\nimport com.example.myproject.library.LibraryFragment;\r\nimport com.google.android.material.bottomnavigation.BottomNavigationView;\r\nimport com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;\r\n\r\npublic class MainActivity extends AppCompatActivity  {\r\n\r\n    ActivityMainBinding binding;\r\n    // returnpos\r\n    // int i;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n\r\n        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);\r\n\r\n        binding.bottomNav.setOnNavigationItemSelectedListener(navListener);\r\n//         i=getIntent().getIntExtra(\"position\")\r\n\r\n        getSupportFragmentManager().beginTransaction()\r\n                .replace(R.id.fragment_container, new HomeFragment())\r\n                .commit();\r\n    }\r\n\r\n    // listener nav bar\r\n    private BottomNavigationView.OnNavigationItemSelectedListener navListener =  new\r\n            BottomNavigationView.OnNavigationItemSelectedListener() {\r\n                @Override\r\n                public boolean onNavigationItemSelected(@NonNull MenuItem item) {\r\n\r\n                    Fragment selectedFragment = null;\r\n\r\n                    switch (item.getItemId()) {\r\n                        case R.id.nav_char:\r\n                            selectedFragment = new CharacterFragment();\r\n                            break;\r\n                        case R.id.nav_attr:\r\n                            selectedFragment = new AttributeFragment();\r\n                            break;\r\n                        case R.id.nav_home:\r\n                            selectedFragment = new HomeFragment();\r\n                            break;\r\n                        case R.id.nav_lib:\r\n                            selectedFragment = new LibraryFragment();\r\n                            break;\r\n                        case R.id.nav_aud:\r\n                            selectedFragment = new AudioFragment();\r\n                            break;\r\n                    }\r\n\r\n                    // begin transaction\r\n                    getSupportFragmentManager().beginTransaction()\r\n                            .replace(R.id.fragment_container, selectedFragment)\r\n                            .commit();\r\n\r\n                    return true;\r\n                }\r\n            };\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/myproject/ui/MainActivity.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/java/com/example/myproject/ui/MainActivity.java	(date 1626085351050)
+@@ -2,24 +2,21 @@
+ 
+ import android.os.Bundle;
+ import android.view.MenuItem;
+-import android.view.View;
+ 
+ import androidx.annotation.NonNull;
+ import androidx.appcompat.app.AppCompatActivity;
+ import androidx.databinding.DataBindingUtil;
+ import androidx.fragment.app.Fragment;
+ 
+-import com.example.myproject.NetWork.AddLifeCycle;
+ import com.example.myproject.R;
+ import com.example.myproject.attribute.AttributeFragment;
+-import com.example.myproject.audio.AudioFragment;
++import com.example.myproject.video.VideoFragment;
+ import com.example.myproject.character.CharacterFragment;
+ 
+ import com.example.myproject.databinding.ActivityMainBinding;
+ import com.example.myproject.home.HomeFragment;
+ import com.example.myproject.library.LibraryFragment;
+ import com.google.android.material.bottomnavigation.BottomNavigationView;
+-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+ 
+ public class MainActivity extends AppCompatActivity  {
+ 
+@@ -63,7 +60,7 @@
+                             selectedFragment = new LibraryFragment();
+                             break;
+                         case R.id.nav_aud:
+-                            selectedFragment = new AudioFragment();
++                            selectedFragment = new VideoFragment();
+                             break;
+                     }
+ 
+Index: app/src/main/java/com/example/myproject/data/AudioModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.myproject.data;\r\n\r\npublic class AudioModel {\r\n\r\n    private String videoLink;\r\n    private String seriesName;\r\n    private String Category;\r\n    private String instructorName;\r\n    private String videoName;\r\n    private int personId;\r\n    private int videoId;\r\n\r\n    public AudioModel() {\r\n    }\r\n\r\n    public AudioModel(String videoLink, String seriesName, String instructorName, String videoName) {\r\n        this.videoLink = videoLink;\r\n        this.seriesName = seriesName;\r\n        this.instructorName = instructorName;\r\n        this.videoName = videoName;\r\n    }\r\n\r\n    public AudioModel(String videoLink, String instructorName, String videoName) {\r\n        this.videoLink = videoLink;\r\n        this.instructorName = instructorName;\r\n        this.videoName = videoName;\r\n    }\r\n\r\n    public String getVideoLink() {\r\n        return videoLink;\r\n    }\r\n\r\n    public void setVideoLink(String videoLink) {\r\n        this.videoLink = videoLink;\r\n    }\r\n\r\n    public String getSeriesName() {\r\n        return seriesName;\r\n    }\r\n\r\n    public void setSeriesName(String seriesName) {\r\n        this.seriesName = seriesName;\r\n    }\r\n\r\n    public String getCategory() {\r\n        return Category;\r\n    }\r\n\r\n    public void setCategory(String category) {\r\n        Category = category;\r\n    }\r\n\r\n    public String getInstructorName() {\r\n        return instructorName;\r\n    }\r\n\r\n    public void setInstructorName(String instructorName) {\r\n        this.instructorName = instructorName;\r\n    }\r\n\r\n    public String getVideoName() {\r\n        return videoName;\r\n    }\r\n\r\n    public void setVideoName(String videoName) {\r\n        this.videoName = videoName;\r\n    }\r\n\r\n    public int getPersonId() {\r\n        return personId;\r\n    }\r\n\r\n    public void setPersonId(int personId) {\r\n        this.personId = personId;\r\n    }\r\n\r\n    public int getVideoId() {\r\n        return videoId;\r\n    }\r\n\r\n    public void setVideoId(int videoId) {\r\n        this.videoId = videoId;\r\n    }\r\n}\r\n\r\n
+===================================================================
+--- app/src/main/java/com/example/myproject/data/AudioModel.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/java/com/example/myproject/data/VideoModel.java	(date 1626085351444)
+@@ -1,6 +1,6 @@
+ package com.example.myproject.data;
+ 
+-public class AudioModel {
++public class VideoModel {
+ 
+     private String videoLink;
+     private String seriesName;
+@@ -10,17 +10,18 @@
+     private int personId;
+     private int videoId;
+ 
+-    public AudioModel() {
+-    }
+-
+-    public AudioModel(String videoLink, String seriesName, String instructorName, String videoName) {
++    public VideoModel(String videoLink) {
++        this.videoLink=videoLink;
++    }
++
++    public VideoModel(String videoLink, String seriesName, String instructorName, String videoName) {
+         this.videoLink = videoLink;
+         this.seriesName = seriesName;
+         this.instructorName = instructorName;
+         this.videoName = videoName;
+     }
+ 
+-    public AudioModel(String videoLink, String instructorName, String videoName) {
++    public VideoModel(String videoLink, String instructorName, String videoName) {
+         this.videoLink = videoLink;
+         this.instructorName = instructorName;
+         this.videoName = videoName;
+Index: app/src/main/res/layout/activity_player.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".audio.PlayerActivity\">\r\n\r\n\r\n    <androidx.fragment.app.FragmentContainerView\r\n        android:id=\"@+id/fragmentContainerView\"\r\n        android:name=\"com.example.myproject.audio.AudioPlayerFrag\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        tools:layout=\"@layout/frag_audio_player\"\r\n        />\r\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_player.xml	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/res/layout/activity_player.xml	(date 1626085351088)
+@@ -4,7 +4,7 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".audio.PlayerActivity">
++    tools:context=".video.PlayerActivity">
+ 
+ 
+     <androidx.fragment.app.FragmentContainerView
+Index: app/src/main/java/com/example/myproject/home/HomeFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.myproject.home;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\n\r\nimport androidx.fragment.app.Fragment;\r\n\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.TextView;\r\n\r\nimport com.example.myproject.R;\r\nimport com.example.myproject.audio.PlayerActivity;\r\n\r\n\r\npublic class HomeFragment extends Fragment {\r\n\r\n\r\n    public HomeFragment() {\r\n        // Required empty public constructor\r\n    }\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\r\n                             Bundle savedInstanceState) {\r\n        // Inflate the layout for this fragment\r\n        View view =  inflater.inflate(R.layout.fragment_home, container, false);\r\n\r\n        TextView textView = view.findViewById(R.id.h);\r\n        textView.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n\r\n                Intent i = new Intent(getActivity(), PlayerActivity.class);\r\n                startActivity(i);\r\n\r\n//                FragmentTransaction transaction = getFragmentManager().beginTransaction();\r\n//                // Replace whatever is in the fragment_container view with this fragment,\r\n//                // and add the transaction to the back stack\r\n//                transaction.replace(R.id.fragment_container, new AudioPlayerFrag());\r\n//                transaction.addToBackStack(null);\r\n//                // Commit the transaction\r\n//                transaction.commit();\r\n            }\r\n        });\r\n        return view;\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/myproject/home/HomeFragment.java	(revision 33c9d3273985aaaf4421680f2a84b13b9ea345ce)
++++ app/src/main/java/com/example/myproject/home/HomeFragment.java	(date 1626085351046)
+@@ -11,7 +11,7 @@
+ import android.widget.TextView;
+ 
+ import com.example.myproject.R;
+-import com.example.myproject.audio.PlayerActivity;
++import com.example.myproject.video.PlayerActivity;
+ 
+ 
+ public class HomeFragment extends Fragment {
