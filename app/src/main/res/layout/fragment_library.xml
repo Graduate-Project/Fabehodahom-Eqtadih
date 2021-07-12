@@ -17,7 +17,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:id="@+id/txt"
-                android:text="مكتبة الصفات"
+                android:text="مكتبة الصحابة"
                 android:layout_marginTop="20dp"
                 android:textColor="@color/brown"
                 android:padding="10dp"
@@ -27,7 +27,7 @@
                 android:textSize="16sp"
                 android:layout_below="@id/v"
                 android:layout_margin="16dp"
-                android:layout_alignEnd="@id/rvLibrary"
+                android:layout_alignRight="@id/rvLibrary"
                 android:textStyle="bold"
 
                 />
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
-                android:text="مكتبة الصحابة "
+                android:text="مكتبة الصفات "
                 android:layout_below="@id/v2"
                 android:padding="10dp"
                 android:textColor="@color/brown"

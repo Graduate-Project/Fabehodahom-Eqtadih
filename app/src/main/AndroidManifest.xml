@@ -4,20 +4,17 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="فبهداهم اقتده"
-        android:roundIcon="@drawable/logo"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyProject">
-        <activity android:name=".character.PlacesExetract"></activity>
-        <activity android:name=".character.CharAttr" />
-        <activity android:name=".attribute.AttributeChar" />
-        <activity android:name=".BookDetailActvity" />
-        <activity android:name=".attribute.ContentOfEachAttr" />
+        <activity android:name=".BookDetailActvity"></activity>
+        <activity android:name=".attribute.ContentOfEachAttr"></activity>
         <activity android:name=".audio.PlayerActivity" />
         <activity android:name=".character.ContentOfEachChar" />
         <activity android:name=".ui.MainActivity" />

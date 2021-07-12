@@ -2,24 +2,21 @@ package com.example.myproject.ui;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-import com.example.myproject.NetWork.AddLifeCycle;
 import com.example.myproject.R;
 import com.example.myproject.attribute.AttributeFragment;
-import com.example.myproject.audio.AudioFragment;
+import com.example.myproject.video.VideoFragment;
 import com.example.myproject.character.CharacterFragment;
 
 import com.example.myproject.databinding.ActivityMainBinding;
 import com.example.myproject.home.HomeFragment;
 import com.example.myproject.library.LibraryFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -63,7 +60,7 @@ public class MainActivity extends AppCompatActivity  {
                             selectedFragment = new LibraryFragment();
                             break;
                         case R.id.nav_aud:
-                            selectedFragment = new AudioFragment();
+                            selectedFragment = new VideoFragment();
                             break;
                     }
 

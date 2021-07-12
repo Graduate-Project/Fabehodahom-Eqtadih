@@ -13,9 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.myproject.NetWork.AttrInterface;
@@ -24,7 +22,6 @@ import com.example.myproject.audio.PlayerActivity;
 import com.example.myproject.data.AttributeModel;
 import com.github.barteksc.pdfviewer.PDFView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -40,14 +37,13 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Frag_Each_attrib extends Fragment {
+public class Frag_Each_attrib extends Fragment implements PopupMenu.OnMenuItemClickListener {
 
 
     View v ;
     int returnIntex;
     Button attr_btn;
     WebView webView;
-    ListView listView;
 
     private static final String TAG = "Frag_Each_attrib";
 
@@ -66,14 +62,48 @@ public class Frag_Each_attrib extends Fragment {
 
         webView = v.findViewById(R.id.web_attr);
 
-
         attrRetrofit();
 
-        attrButton();
-
+       // showPopup(v);
         return v;
     }
 
+    public void showPopup(View v){
+        PopupMenu popupMenu = new PopupMenu(getContext(), v);
+        popupMenu.setOnMenuItemClickListener(this);
+        switch (returnIntex){
+            case 0:
+                popupMenu.inflate(R.menu.hayaa_menu);
+                popupMenu.show();
+                break;
+            case 1:
+                popupMenu.inflate(R.menu.sedq_menu);
+                popupMenu.show();
+                break;
+            case 2:
+                popupMenu.inflate(R.menu.amana_menu);
+                popupMenu.show();
+                break;
+            case 3:
+                popupMenu.inflate(R.menu.twad3_menu);
+                popupMenu.show();
+                break;
+            case 4:
+                popupMenu.inflate(R.menu.zuhd_menu);
+                popupMenu.show();
+                break;
+            case 5:
+                popupMenu.inflate(R.menu.waraa_menu);
+                popupMenu.show();
+                break;
+        }
+
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        return false;
+    }
 
     public void attrRetrofit(){
         Retrofit retrofit = new Retrofit.Builder()
@@ -140,23 +170,5 @@ public class Frag_Each_attrib extends Fragment {
 //            }
 //        });
 //
-    }
-
-    public void attrButton(){
-
-        attr_btn = v.findViewById(R.id.attr_btn);
-
-        for (int i = 0; i<= returnIntex; i ++){
-            final int fi = i;
-            attr_btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent i = new Intent(getActivity(), AttributeChar.class);
-                    i.putExtra("index", fi);
-                    startActivity(i);
-                }
-            });
-        }
-
     }
 }
