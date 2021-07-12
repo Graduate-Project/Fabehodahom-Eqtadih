@@ -1,14 +1,11 @@
 package com.example.myproject.attribute;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -18,9 +15,7 @@ import android.widget.Toast;
 
 import com.example.myproject.NetWork.AttrInterface;
 import com.example.myproject.R;
-import com.example.myproject.audio.PlayerActivity;
 import com.example.myproject.data.AttributeModel;
-import com.github.barteksc.pdfviewer.PDFView;
 
 import java.util.List;
 
@@ -30,14 +25,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Frag_Each_attrib extends Fragment implements PopupMenu.OnMenuItemClickListener {
+public class Frag_Each_attrib extends Fragment  {
 
 
     View v ;
@@ -61,51 +53,22 @@ public class Frag_Each_attrib extends Fragment implements PopupMenu.OnMenuItemCl
         returnIntex = ((ContentOfEachAttr) getActivity()).getIntent().getIntExtra("index", 1);
 
         webView = v.findViewById(R.id.web_attr);
+//        attr_btn=v.findViewById(R.id.attribbtn);
+//        attr_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getContext(), ExtractAttribute.class));
+//            }
+//        });
+
 
         attrRetrofit();
 
-       // showPopup(v);
         return v;
     }
 
-    public void showPopup(View v){
-        PopupMenu popupMenu = new PopupMenu(getContext(), v);
-        popupMenu.setOnMenuItemClickListener(this);
-        switch (returnIntex){
-            case 0:
-                popupMenu.inflate(R.menu.hayaa_menu);
-                popupMenu.show();
-                break;
-            case 1:
-                popupMenu.inflate(R.menu.sedq_menu);
-                popupMenu.show();
-                break;
-            case 2:
-                popupMenu.inflate(R.menu.amana_menu);
-                popupMenu.show();
-                break;
-            case 3:
-                popupMenu.inflate(R.menu.twad3_menu);
-                popupMenu.show();
-                break;
-            case 4:
-                popupMenu.inflate(R.menu.zuhd_menu);
-                popupMenu.show();
-                break;
-            case 5:
-                popupMenu.inflate(R.menu.waraa_menu);
-                popupMenu.show();
-                break;
-        }
 
-    }
-
-    @Override
-    public boolean onMenuItemClick(MenuItem item) {
-        return false;
-    }
-
-    public void attrRetrofit(){
+    public void attrRetrofit() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://simpleapp-nodejs.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -127,7 +90,7 @@ public class Frag_Each_attrib extends Fragment implements PopupMenu.OnMenuItemCl
             public void onNext(@NonNull List<AttributeModel> attributeModels) {
 
                 List<AttributeModel> list = attributeModels;
-                // webView.setText(myheroList.get(returnIndex).getPersonName());
+
                 webView.getSettings().setJavaScriptEnabled(true);
                 webView.getSettings().setSaveFormData(true);
                 webView.setWebViewClient(new WebViewClient());
@@ -147,14 +110,12 @@ public class Frag_Each_attrib extends Fragment implements PopupMenu.OnMenuItemCl
             }
         };
 
-        observable.subscribe(observer);
-
-//
+   observable.subscribe(observer);
+////
 //        call.enqueue(new Callback<List<AttributeModel>>() {
 //            @Override
 //            public void onResponse(Call<List<AttributeModel>> call, Response<List<AttributeModel>> response) {
 //                List<AttributeModel> list = response.body();
-//                // webView.setText(myheroList.get(returnIndex).getPersonName());
 //                webView.getSettings().setJavaScriptEnabled(true);
 //                webView.getSettings().setSaveFormData(true);
 //                webView.setWebViewClient(new WebViewClient());
@@ -170,5 +131,7 @@ public class Frag_Each_attrib extends Fragment implements PopupMenu.OnMenuItemCl
 //            }
 //        });
 //
-    }
-}
+//
+//    }
+
+    }}

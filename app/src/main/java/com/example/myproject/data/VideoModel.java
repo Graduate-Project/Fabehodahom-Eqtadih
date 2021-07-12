@@ -1,6 +1,6 @@
 package com.example.myproject.data;
 
-public class AudioModel {
+public class VideoModel {
 
     private String videoLink;
     private String seriesName;
@@ -10,17 +10,18 @@ public class AudioModel {
     private int personId;
     private int videoId;
 
-    public AudioModel() {
+    public VideoModel(String videoLink) {
+        this.videoLink=videoLink;
     }
 
-    public AudioModel(String videoLink, String seriesName, String instructorName, String videoName) {
+    public VideoModel(String videoLink, String seriesName, String instructorName, String videoName) {
         this.videoLink = videoLink;
         this.seriesName = seriesName;
         this.instructorName = instructorName;
         this.videoName = videoName;
     }
 
-    public AudioModel(String videoLink, String instructorName, String videoName) {
+    public VideoModel(String videoLink, String instructorName, String videoName) {
         this.videoLink = videoLink;
         this.instructorName = instructorName;
         this.videoName = videoName;

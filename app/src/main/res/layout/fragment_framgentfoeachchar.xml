@@ -33,7 +33,7 @@
             android:background="@color/gray" />
 
         <Button
-            android:id="@+id/attribbtn"
+            android:id="@+id/charbtn"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:background="@drawable/right_radius"

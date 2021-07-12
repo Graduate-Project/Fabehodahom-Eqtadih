@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.myproject.R;
-import com.example.myproject.audio.PlayerActivity;
+import com.example.myproject.video.PlayerActivity;
 
 
 public class HomeFragment extends Fragment {

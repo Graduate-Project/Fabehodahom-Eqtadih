@@ -16,7 +16,6 @@
             android:id="@+id/h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Home fragment"
             android:textSize="30sp"
             android:textColor="@color/white"
             android:layout_centerInParent="true" />
