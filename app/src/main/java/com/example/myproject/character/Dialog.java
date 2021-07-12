@@ -30,4 +30,5 @@ public class Dialog extends DialogFragment {
         builder.setView(inflater.inflate(R.layout.attribute_dialog, null));
         builder.setCancelable(true);
         dialog = builder.create();
-
+    }
+}

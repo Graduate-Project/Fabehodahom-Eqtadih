@@ -52,8 +52,7 @@
                         android:id="@+id/book_img"
                         android:layout_width="250dp"
                         android:layout_height="200dp"
-                        android:scaleType="centerCrop"
-                         />
+                        android:scaleType="centerCrop" />
 
                     <TextView
                         android:id="@+id/book_author"
@@ -100,32 +99,30 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_below="@+id/back_card"/>
+                android:layout_below="@+id/back_card" />
 
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 
-
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/btnstyle2"
-        >
+        app:cardCornerRadius="10dp">
 
         <TextView
             android:id="@+id/back_lib"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-
+            android:layout_width="150dp"
+            android:layout_height="30dp"
             android:text="@string/back_to_home"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            />
+            android:textSize="20sp"
+            android:gravity="center"
+            android:background="@drawable/round"/>
 
-    </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

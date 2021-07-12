@@ -65,4 +65,6 @@
     <string name="char_talha">طلحه بن عبيد الله</string>
     <string name="char_sbair">الزبير بن العوام</string>
     <string name="char_abdrahman">عبدالرحمن بن عوف</string>
+    <string name="sedk">صفة الصدق</string>
+    <string name="place_extract">استخراج الأماكن</string>
 </resources>

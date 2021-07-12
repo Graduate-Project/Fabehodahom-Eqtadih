@@ -7,4 +7,11 @@
     <item android:id="@+id/item_ali"
         android:title="@string/char_ali"/>
 
+    <item android:id="@+id/item_talha"
+        android:title="@string/char_talha"/>
+
+    <item android:id="@+id/item_abdrahman"
+        android:title="@string/char_abdrahman"/>
+
+
 </menu>
